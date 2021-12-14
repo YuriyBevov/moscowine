@@ -1,0 +1,29 @@
+#fp-nav ul li {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+#fp-nav ul li a {
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+}
+
+#fp-nav ul li a span {
+    width: 8px !important;
+    height: 8px !important;
+    opacity: 0;
+    margin: 0 !important;
+    transform: translate(-50%, -50%);
+    background: transparent !important;
+    transition: opacity 0.3s ease-in !important;
+}
+
+#fp-nav ul li a.active span {
+    width: 8px !important;
+    height: 8px !important;
+    opacity: 1;
+    margin: 0 !important;
+
+    background: #ffffff !important;   
+}

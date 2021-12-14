@@ -1,0 +1,28 @@
+.footer {
+    /* &__page-list {
+        height: 35px;
+        overflow: hidden;
+    } */
+
+    &__page-num {
+        span:first-child {
+            font-size: 20px;
+            min-height: 35px;
+            width: 25px;
+            transform: rotate(-90deg);
+        }
+
+        .separator {
+            display: block;
+            width: 30px;
+            border: 1px solid #FFFFFF;
+        }
+    }
+}
+
+.section.active {
+    .footer {
+        color: red !important;
+    }
+    
+}

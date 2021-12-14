@@ -1,0 +1,23 @@
+extends layouts/main-layout.pug
+
+block variables
+  -
+    const title = "MoscoWine"
+    const desc = "Описание сайта"
+    const keywords = ""
+
+block content
+
+  // include ./blocks/index-page/intro
+  //<div class="section bg-primary row">
+      .col-12.col-sm-6 1
+      .col-12.col-sm-6 2
+  //</div>
+
+  #fullpage.cmn
+    .section.main.fp-slide.fp-noscroll(data-anchor="fp-slide_1") 1
+    .section.investors.fp-slide.fp-noscroll(data-anchor="fp-slide_2") 2
+    .section.partners.fp-slide.fp-noscroll(data-anchor="fp-slide_3") 3
+    .section.calc.fp-slide.fp-noscroll(data-anchor="fp-slide_4") 4
+
+  

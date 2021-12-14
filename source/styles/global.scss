@@ -1,0 +1,34 @@
+.header,
+.footer {
+    position: fixed;
+    z-index: 10;
+}
+
+.header {
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+
+.footer {
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+}
+
+ul {
+  list-style: none;
+}
+
+label,
+input,
+button {
+    cursor: pointer;
+}
+
+.section {
+    background-color: #5e2873;
+    background-size: cover;
+}
+
+

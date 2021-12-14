@@ -1,0 +1,34 @@
+- 
+  const navList = [
+      {
+          menuAnchor: 'company',
+          title: 'О компании',
+          isActive: true
+      },
+
+      {
+          menuAnchor: 'investors',
+          title: 'Инвесторам',
+          isActive: false
+      },
+
+      {
+          menuAnchor: 'partners',
+          title: 'Партнёрам',
+          isActive: false
+      },
+
+      {
+          menuAnchor: 'calculator',
+          title: 'Калькулятор',
+          isActive: false
+      },
+  ]
+
+nav.nav.mb-3
+  ul#navList.nav__list.d-flex.p-0.m-0
+    each item in navList
+      li.nav__item.ms-5(data-menuanchor=item.menuAnchor)
+        a.text-white.font-mono(href='#' + item.menuAnchor)= item.title
+  
+  

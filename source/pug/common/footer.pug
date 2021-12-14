@@ -1,0 +1,67 @@
+-
+  const pageList = [
+    {
+      num: '01',
+      title: 'О компании'
+    },
+    {
+      num: '02',
+      title: 'Инвесторам'
+    },
+    {
+      num: '03',
+      title: 'Партнерам'
+    },
+    {
+      num: '03',
+      title: 'Кулькулятор'
+    },
+  ]
+
+-
+  const socialList = [
+    {
+      title: 'Facebook',
+      icon: '#icon-fb',
+      link: '#'
+    },
+    {
+      title: 'Instagram',
+      icon: '#icon-insta',
+      link: '#'
+    },
+    {
+      title: 'Яндекс.Дзен',
+      icon: '#icon-yandex',
+      link: '#'
+    },
+  ]
+
+footer.footer
+  .d-flex.align-items-center.container-fluid.p-5.m-0.row
+   
+    //ul.col-4.m-0.footer__page-list
+      each page in pageList
+        li.footer__page-item.d-flex.align-items-center
+          span.text-uppercase.text-white.font-mono=page.num
+          span.separator.mx-3.d-block
+          span.text-uppercase.text-white.font-mono=page.title
+    .footer__page-num.col-4.m-0.d-flex.align-items-center
+      span.text-uppercase.text-white.font-mono 01
+      span.separator.mx-3.d-block
+      span.text-uppercase.text-white.font-mono О Компании
+    
+
+    ul.col-8.m-0.d-flex.align-items-center.justify-content-end
+      each social in socialList
+        li.footer__social-item.ms-4
+          a(href="#" aria-label=social.title)
+            svg(width="25" height="25")
+              use(xlink:href=social.icon)
+
+    
+      
+
+    
+      
+    

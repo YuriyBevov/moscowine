@@ -1,0 +1,14 @@
+header.header
+  .d-flex.container-fluid.p-5.m-0.row
+   
+    .header__logo.col-4
+      img(src="./assets/img/logo@1x.png"  srcset="./assets/img/logo@2x.png" alt="Логотип" width="182" height="45")
+
+    .header__nav.d-flex.flex-column.align-items-end.ms-auto.col-8
+      include ./nav
+
+      .form-check.form-switch.header__switcher
+        label.form-check-label.text-white.pe-2(for="langSwitcher") ENG
+        input.form-check-input(type="checkbox" role="switch" id="langSwitcher")
+        label.form-check-label.text-white.ps-2(for="langSwitcher") РУС
+      
