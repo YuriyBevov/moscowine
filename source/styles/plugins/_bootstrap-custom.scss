@@ -178,10 +178,6 @@ $link-decoration: none;
 
 // scss-docs-start form-switch-variables
 
-//$input-focus-bg: $pink;
-
-//$input-bg: $pink;
-
 $form-switch-color:               $pink !default;
 $form-switch-focus-color:         $pink !default;
 $form-switch-checked-color:       $pink !default;
@@ -192,11 +188,11 @@ $form-switch-checked-bg-image:    url("data:image/svg+xml,<svg xmlns='http://www
 
 $form-switch-width:               2.5em !default;
 
-$form-switch-padding-start:       $form-switch-width + .5em !default;
+/* $form-switch-padding-start:       $form-switch-width + .5em !default;
 $form-switch-border-radius:       $form-switch-width !default;
-$form-switch-transition:          background-position .15s ease-in-out !default;
+$form-switch-transition:          background-position .15s ease-in-out !default; */
 
-$form-check-input-active-filter:          brightness(90%);
+// $form-check-input-active-filter:          brightness(90%);
 
 $form-check-input-bg:                     $pink;
 $form-check-input-border:                 $pink;

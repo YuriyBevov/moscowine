@@ -1,16 +1,14 @@
 @import "fonts";
-
 // @import "mixins";
 @import "global";
 
+//--- plugins
 @import "./plugins/_bootstrap-custom";
 @import  "../../node_modules/bootstrap/scss/bootstrap";
 @import "./plugins/fullpage";
 @import "./plugins/_fullpage-custom.scss";
-//--- plugins
 
 // blocks
-
 @import "common/header";
 @import "common/nav";
 

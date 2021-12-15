@@ -19,7 +19,8 @@ import { waterEffect } from 'fullpage.js'
 // Initializing it
 var fullPageInstance = new fullpage('#fullpage', {
 	licenseKey: 'D981602C-940F4E9F-B5104540-EB7B7079',
-
+	scrollHorizontally: true,
+	
     navigation: true,
 	slidesNavigation: true,
 	menu: '#navList',
@@ -29,13 +30,6 @@ var fullPageInstance = new fullpage('#fullpage', {
 
 	// navigationTooltips: ['01 - О КОМПАНИИ', 'secondSlide', 'abracadabra', 'abracadabra4'],
 	// showActiveTooltip: true,
-	/*afterLoad: function(origin){
-		var loadedSection = this;
-
-		console.log(origin)
-		
-
-	}*/
 
 	afterLoad: function(origin, destination, direction){
 		var leavingSection = this;
