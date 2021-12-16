@@ -9828,6 +9828,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -9847,7 +9851,7 @@ __webpack_require__.r(__webpack_exports__);
             },
 
             costTotal: 'XX XXX',
-            percentTotal: 'XX',
+            percentTotal: 0,
         }
     },
 
@@ -9880,8 +9884,9 @@ __webpack_require__.r(__webpack_exports__);
         },
 
         initCalc() {
-            this.formData.costFrom = this.getCalcData('start', 1, 1)
-            this.formData.costTo = this.getCalcData('start', 1, 15);
+            this.formData.costFrom = this.getCalcData('start', 0, 1);
+            this.formData.costTo = this.getCalcData('start', 0, 15);
+            this.costTotal = this.getCalcData('totalCost', 0, 1 );
             this.formData.currentCost = this.formData.costFrom;
         }
     },
@@ -9994,7 +9999,7 @@ var render = function () {
                   expression: "formData.currentCost",
                 },
               ],
-              staticClass: "form-range position-relative disable",
+              staticClass: "form-range position-relative",
               staticStyle: { top: "-16px" },
               attrs: {
                 type: "range",
@@ -10169,7 +10174,15 @@ var render = function () {
               },
               [
                 _vm._v(
-                  _vm._s(_vm.isResultShowed ? this.percentTotal : "XX") + "%"
+                  "\n                " +
+                    _vm._s(
+                      _vm.isResultShowed && this.percentTotal > 0
+                        ? this.percentTotal + "%"
+                        : _vm.isResultShowed && this.percentTotal === 0
+                        ? "-"
+                        : "XX%"
+                    ) +
+                    "\n            "
                 ),
               ]
             ),

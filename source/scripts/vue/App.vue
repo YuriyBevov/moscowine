@@ -41,7 +41,7 @@
                     <input 
                         v-model="formData.currentCost" 
                         type="range" 
-                        class="form-range position-relative disable"
+                        class="form-range position-relative"
                         style="top: -16px;"
                         id="costRange" 
                         :min="formData.costFrom" :max="formData.costTo"
@@ -108,7 +108,11 @@
 
             <div class="d-flex flex-row flex-sm-column col-12 col-sm-6">
                 <span class="text-white fs-5 col-6 col-sm-12">Процент годовой  доходности</span>
-                <span class="text-white text-end text-sm-start fs-3 fw-bold col-6 col-sm-12">{{ isResultShowed ? this.percentTotal : 'XX' }}%</span>
+                <span class="text-white text-end text-sm-start fs-3 fw-bold col-6 col-sm-12">
+                    {{ 
+                        isResultShowed && this.percentTotal > 0 ? this.percentTotal + '%'  : isResultShowed && this.percentTotal === 0 ? '-' : 'XX%' 
+                    }}
+                </span>
             </div>
         </div>
     </div>
@@ -133,7 +137,7 @@
                 },
 
                 costTotal: 'XX XXX',
-                percentTotal: 'XX',
+                percentTotal: 0,
             }
         },
 
@@ -166,8 +170,9 @@
             },
 
             initCalc() {
-                this.formData.costFrom = this.getCalcData('start', 1, 1)
-                this.formData.costTo = this.getCalcData('start', 1, 15);
+                this.formData.costFrom = this.getCalcData('start', 0, 1);
+                this.formData.costTo = this.getCalcData('start', 0, 15);
+                this.costTotal = this.getCalcData('totalCost', 0, 1 );
                 this.formData.currentCost = this.formData.costFrom;
             }
         },

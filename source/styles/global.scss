@@ -127,21 +127,17 @@ button {
     }
 }
 
-// fp-destroyed
-
 section {
     height: fit-content;
     min-height: 100vh;
     width: 100%;
 }
 
-/*.fp-slide {
-        display: flex !important;
-} */
-
 .fullpage-destroyed {
     section {
         display: flex !important;
+        min-height: auto;
+        padding: 50px 0;
     }
 
     .footer__page-num, nav {
