@@ -5,6 +5,22 @@
         @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
           background-image: url("../assets/img/bg-section_3@2x.webp");
         }
+
+        @media(max-width: 960px) {
+          background-image: url("../assets/img/bg-section-tablet_3@1x.webp");
+
+          @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
+            background-image: url("../assets/img/bg-section-tablet_3@2x.webp");
+          }
+        }
+
+        @media(max-width: 480px) {
+          background-image: url("../assets/img/bg-section-mobile_3@1x.webp");
+
+          @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
+            background-image: url("../assets/img/bg-section-mobile_3@2x.webp");
+          }
+        }
       }
     
       .no-webp & {
@@ -12,6 +28,22 @@
     
         @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
           background-image: url("../assets/img/bg-section_3@2x.jpg");
+        }
+
+        @media(max-width: 960px) {
+          background-image: url("../assets/img/bg-section-tablet_3@1x.jpg");
+    
+          @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
+            background-image: url("../assets/img/bg-section-tablet_3@2x.jpg");
+          }
+        }
+
+        @media(max-width: 480px) {
+          background-image: url("../assets/img/bg-section-mobile_3@1x.jpg");
+    
+          @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
+            background-image: url("../assets/img/bg-section-mobile_3@2x.jpg");
+          }
         }
     }
 }
