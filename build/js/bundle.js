@@ -9711,6 +9711,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _data_calc_data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data/calc-data.js */ "./source/scripts/vue/data/calc-data.js");
 //
 //
 //
@@ -9823,16 +9824,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'app',
 
     data() {
         return {
+            
+
             formData: {
-                percent: '8',
-                cost: '300000',
-                time: '2',
+                percent: 1,
+                currentCost: null,
+                costFrom: null,
+                costTo: null,
+                time: 1,
             },
 
             costTotal: 'XX XXX',
@@ -9847,6 +9857,36 @@ __webpack_require__.r(__webpack_exports__);
             this.costTotal = String(Math.floor(2678 * Math.random(1, 10))),
             this.percentTotal=  String(Math.floor(100 * Math.random(1, 10)))
         },
+
+        getCalcData(arrayName, time, percent = null) {
+            if(arrayName === 'totalPercent') {
+                return _data_calc_data_js__WEBPACK_IMPORTED_MODULE_0__["calcData"][arrayName][time - 1]
+            } else {
+                return _data_calc_data_js__WEBPACK_IMPORTED_MODULE_0__["calcData"][arrayName][time - 1][percent - 1]
+            }
+        },
+
+        setCalcData() {
+            let percent = Number(this.formData.percent)
+            let time = Number(this.formData.time)
+            
+            this.percentTotal = this.getCalcData('totalPercent', time)
+            this.costTotal = this.getCalcData('totalCost', time, percent )
+
+            this.formData.costFrom = this.getCalcData('start', time , 1 )
+            this.formData.costTo = this.getCalcData('start', time, 15 )
+            this.formData.currentCost = this.getCalcData('start', time, percent )
+        },
+
+        initCalc() {
+            this.formData.costFrom = this.getCalcData('start', 1, 1)
+            this.formData.costTo = this.getCalcData('start', 1, 15);
+            this.formData.currentCost = this.formData.costFrom;
+        }
+    },
+
+    mounted() {
+        this.initCalc()
     }
 });
 
@@ -9907,6 +9947,9 @@ var render = function () {
               attrs: { type: "range", id: "percentRange", min: "1", max: "15" },
               domProps: { value: _vm.formData.percent },
               on: {
+                input: function ($event) {
+                  return _vm.setCalcData()
+                },
                 __r: function ($event) {
                   return _vm.$set(_vm.formData, "percent", $event.target.value)
                 },
@@ -9936,7 +9979,7 @@ var render = function () {
                 _c(
                   "span",
                   { staticClass: "text-deep-purple calc__field-value" },
-                  [_vm._v(_vm._s(this.formData.cost) + "$")]
+                  [_vm._v(_vm._s(this.formData.currentCost) + "$")]
                 ),
               ]
             ),
@@ -9946,28 +9989,50 @@ var render = function () {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.formData.cost,
-                  expression: "formData.cost",
+                  value: _vm.formData.currentCost,
+                  expression: "formData.currentCost",
                 },
               ],
-              staticClass: "form-range position-relative",
+              staticClass: "form-range position-relative disable",
               staticStyle: { top: "-16px" },
               attrs: {
                 type: "range",
                 id: "costRange",
-                min: "100",
-                max: "1000000",
+                min: _vm.formData.costFrom,
+                max: _vm.formData.costTo,
+                disabled: "",
               },
-              domProps: { value: _vm.formData.cost },
+              domProps: { value: _vm.formData.currentCost },
               on: {
+                input: function ($event) {
+                  return _vm.setCalcData()
+                },
                 __r: function ($event) {
-                  return _vm.$set(_vm.formData, "cost", $event.target.value)
+                  return _vm.$set(
+                    _vm.formData,
+                    "currentCost",
+                    $event.target.value
+                  )
                 },
               },
             }),
           ]),
           _vm._v(" "),
-          _vm._m(1),
+          _c(
+            "div",
+            {
+              staticClass: "d-flex align-items-center justify-content-between",
+            },
+            [
+              _c("span", { staticClass: "text-white" }, [
+                _vm._v(_vm._s(this.formData.costFrom) + " $"),
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "text-white" }, [
+                _vm._v(_vm._s(this.formData.costTo) + " $"),
+              ]),
+            ]
+          ),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "mb-3" }, [
@@ -10024,6 +10089,9 @@ var render = function () {
               attrs: { type: "range", id: "investTime", min: "1", max: "5" },
               domProps: { value: _vm.formData.time },
               on: {
+                input: function ($event) {
+                  return _vm.setCalcData()
+                },
                 __r: function ($event) {
                   return _vm.$set(_vm.formData, "time", $event.target.value)
                 },
@@ -10031,7 +10099,7 @@ var render = function () {
             }),
           ]),
           _vm._v(" "),
-          _vm._m(2),
+          _vm._m(1),
         ]),
         _vm._v(" "),
         _c(
@@ -10108,20 +10176,6 @@ var staticRenderFns = [
         _c("span", { staticClass: "text-white" }, [_vm._v("1%")]),
         _vm._v(" "),
         _c("span", { staticClass: "text-white" }, [_vm._v("15%")]),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "d-flex align-items-center justify-content-between" },
-      [
-        _c("span", { staticClass: "text-white" }, [_vm._v("100 $")]),
-        _vm._v(" "),
-        _c("span", { staticClass: "text-white" }, [_vm._v("1000000 $")]),
       ]
     )
   },
@@ -19104,6 +19158,83 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_26565aea___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_26565aea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./source/scripts/vue/data/calc-data.js":
+/*!**********************************************!*\
+  !*** ./source/scripts/vue/data/calc-data.js ***!
+  \**********************************************/
+/*! exports provided: calcData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "calcData", function() { return calcData; });
+const calcData = 
+    {
+        /*год/
+         процент*/
+        start: [
+            [
+                271752, 543504, 815256, 1087008,1358760,1630512,1902264,2174017,2445769,2717542,2989273,3261025,3532777,3804529,4076281
+            ],
+
+            [
+                483497, 966994,1450491,1933988,2417485,2900982,3384479,3867976,4351473,4834970,5318468,5801965,6285462,6768959,7252456
+            ],
+
+            [
+                966994,1933988,2900982,3867976,4834970,5801965,6768959,7735953,8702947,9669941,10636935,11603929,12570923,13537917,14504911
+            ],
+
+            [
+                1450491,2900982,4351473,5801965,7252456,8702947,10153438,11603929,13054420,14504911,15955403,17405894,18856385,20306876,21757367
+            ],
+
+            [
+                1933988,3867976,5801965,7735953,9669941,11603929,13537917,15471905,17405894,19339882,21273870,23207858,25141846,27075835,29009823
+            ],
+
+            [
+                2417485,4834970,7252456,9669941,12087426,14504911,16922397,19339882,21757367,24174852,26592338,29009823,31427308,33844793,36262278
+            ]
+        ],
+
+        totalCost: [
+            [
+                271752,543504,815256,1087008,1358760,1630512,1902264,2174017,2445769,2717521,2989273,3261025,3532777,3804529,4076281
+            ],
+
+            [
+                755249,1510498,2265747,3020996,3776246,4531495,5286744,6041993,6797242,7552491,8307740,9062989,9818239,10573488,11328737
+            ],
+
+            [
+                1238746,2477492,3716238,4954985,6193731,7432477,8671223,9909969,11148715,12387462,13626208,14864954,16103700,17342446,18581192
+            ],
+
+            [
+                1722243,3444486,5166730,6888973,8611216,10333459,12055702,13777946,15500189,17222432,18944675,20666918,22389162,24111405,25833648
+            ],
+
+            [
+                2205740,4411481,6617221,8822961,11028701,13234442,15440182,17645922,19851662,22057403,24263143,26468883,28674623,30880364,33086104
+            ],
+
+            [
+                2689237,5378475,8067712,10756949,13446187,16135424,18824661,21513898,24203136,26892373,29581610,32270848,34960085,37649322,40338560,
+            ]
+        ],
+
+        totalPercent: [ 93,287,480,674,867 ]
+        
+    }
+
+
+
 
 
 

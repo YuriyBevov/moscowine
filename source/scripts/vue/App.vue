@@ -18,6 +18,7 @@
                         style="top: -16px;"
                         id="percentRange" 
                         min="1" max="15"
+                        @input="setCalcData()"
                     >
                 </div>
 
@@ -34,22 +35,24 @@
                         justify-content-between bg-white p-1 py-3 p-sm-3 mb-0"
                     >
                         <span class="text-deep-purple calc__field-title">Начальная стоимость доли</span> 
-                        <span class="text-deep-purple calc__field-value">{{this.formData.cost}}$</span>
+                        <span class="text-deep-purple calc__field-value">{{this.formData.currentCost}}$</span>
                     </label>
 
                     <input 
-                        v-model="formData.cost" 
+                        v-model="formData.currentCost" 
                         type="range" 
-                        class="form-range position-relative"
+                        class="form-range position-relative disable"
                         style="top: -16px;"
                         id="costRange" 
-                        min="100" max="1000000"
+                        :min="formData.costFrom" :max="formData.costTo"
+                        @input="setCalcData()"
+                        disabled
                     >
                 </div>
 
                 <div class="d-flex align-items-center justify-content-between">
-                    <span class="text-white">100 $</span>
-                    <span class="text-white">1000000 $</span>
+                    <span class="text-white">{{this.formData.costFrom}} $</span>
+                    <span class="text-white">{{this.formData.costTo}} $</span>
                 </div>
             </div>
 
@@ -78,6 +81,7 @@
                         style="top: -16px;"
                         id="investTime" 
                         min="1" max="5"
+                        @input="setCalcData()"
                     >
                 </div>
 
@@ -111,15 +115,20 @@
 </template>
 
 <script>
+    import { calcData } from './data/calc-data.js'
     export default {
         name: 'app',
 
         data() {
             return {
+                
+
                 formData: {
-                    percent: '8',
-                    cost: '300000',
-                    time: '2',
+                    percent: 1,
+                    currentCost: null,
+                    costFrom: null,
+                    costTo: null,
+                    time: 1,
                 },
 
                 costTotal: 'XX XXX',
@@ -134,6 +143,36 @@
                 this.costTotal = String(Math.floor(2678 * Math.random(1, 10))),
                 this.percentTotal=  String(Math.floor(100 * Math.random(1, 10)))
             },
+
+            getCalcData(arrayName, time, percent = null) {
+                if(arrayName === 'totalPercent') {
+                    return calcData[arrayName][time - 1]
+                } else {
+                    return calcData[arrayName][time - 1][percent - 1]
+                }
+            },
+
+            setCalcData() {
+                let percent = Number(this.formData.percent)
+                let time = Number(this.formData.time)
+                
+                this.percentTotal = this.getCalcData('totalPercent', time)
+                this.costTotal = this.getCalcData('totalCost', time, percent )
+
+                this.formData.costFrom = this.getCalcData('start', time , 1 )
+                this.formData.costTo = this.getCalcData('start', time, 15 )
+                this.formData.currentCost = this.getCalcData('start', time, percent )
+            },
+
+            initCalc() {
+                this.formData.costFrom = this.getCalcData('start', 1, 1)
+                this.formData.costTo = this.getCalcData('start', 1, 15);
+                this.formData.currentCost = this.formData.costFrom;
+            }
+        },
+
+        mounted() {
+            this.initCalc()
         }
     }
 </script>
