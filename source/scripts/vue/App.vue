@@ -142,7 +142,7 @@
 
         methods: {
             sendFormData() {
-                console.log('sendFormData', this.formData)
+                // console.log('sendFormData', this.formData)
                 this.isResultShowed = true
             },
 
