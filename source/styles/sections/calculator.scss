@@ -1,5 +1,19 @@
 .calc {
-    background-image: url("../assets/img/bg-section_4@1x.jpg");
+    .webp & {
+        background-image: url("../assets/img/bg-section_4@1x.webp");
+
+        @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
+          background-image: url("../assets/img/bg-section_4@2x.webp");
+        }
+      }
+    
+      .no-webp & {
+        background-image: url("../assets/img/bg-section_4@1x.jpg");
+    
+        @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
+          background-image: url("../assets/img/bg-section_4@2x.jpg");
+        }
+    }
 
     &__desc {
         max-width: 430px;

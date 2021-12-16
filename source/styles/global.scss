@@ -177,6 +177,16 @@ section {
     }
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+    min-height: 8px;
+    background-color: #280e35 !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b3508f;
+}
+
 
 
 
