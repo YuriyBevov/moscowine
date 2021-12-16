@@ -3,7 +3,7 @@ const { VueLoaderPlugin} = require('vue-loader')
 
 
 module.exports = {
-  mode: 'development', // сменив на production и запустив gulp build сделает минификацию js
+  mode: 'production',
   output: {
     filename: './js/bundle.js'
   },

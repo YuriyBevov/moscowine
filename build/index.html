@@ -92,9 +92,9 @@
           </ul>
         </nav>
         <div class="form-check form-switch header__switcher">
-          <label class="form-check-label text-white pe-2" for="langSwitcher">ENG</label>
-          <input class="form-check-input" type="checkbox" role="switch" id="langSwitcher">
-          <label class="form-check-label text-white ps-2" for="langSwitcher">РУС</label>
+          <label class="form-check-label text-white pe-2" for="langSwitcherHeader">ENG</label>
+          <input class="form-check-input" type="checkbox" role="switch" id="langSwitcherHeader">
+          <label class="form-check-label text-white ps-2" for="langSwitcherHeader">РУС</label>
         </div>
       </div>
     </div>
@@ -108,7 +108,7 @@
               <h1 class="fs-1 font-mono text-white mb-3" data-aos="fade-up" data-delay="500">MoscoWine</h1>
               <p class="main__desc text-white text-center text-lg-start font-sec mb-4">Сервис по подбору и резервированию алкогольных напитков.</p>
               <button class="col-12 col-md-6 col-lg-10 col-xl-8 text-uppercase btn btn-purple rounded-0 border border-white p-2 p-sm-3 px-1 mb-4" type="button">Презентация для клиентов</button>
-              <button class="col-12 col-md-6 col-lg-10 col-xl-8 text-uppercase btn btn-purple rounded-0 border border-white p-2 p-sm-3 px-1 mb-5" type="button">Презентация для партнёров</button><a class="scroll-button p-0 mt-4" href="#investors">
+              <button class="col-12 col-md-6 col-lg-10 col-xl-8 text-uppercase btn btn-purple rounded-0 border border-white p-2 p-sm-3 px-1 mb-5" type="button">Презентация для партнёров</button><a class="scroll-button p-0 mt-4" href="#investors" aria-label="Листать вверх">
                 <svg width="12" height="12">
                   <use xlink:href="#icon-arr"></use>
                 </svg></a>
@@ -117,23 +117,23 @@
               <p class="main__form-title font-sec text-white mb-3 text-center m-auto">Авторизуйтесь, чтобы скачать материалы для инвесторов.</p>
               <form>
                 <div class="mb-0 mb-sm-3 d-flex row flex-column flex-sm-row">
-                  <div class="col-12 col-sm-6 mb-3 mb-sm-0" id="holder">
-                    <label class="pb-3 fs-5 text-deep-purple opacity-75" for="name" id="label">Имя</label>
-                    <input class="form-control input-field px-3 pt-4 pb-0 rounded-0 text-deep-purple" type="text" aria-describedby="Имя" placeholder="XXXXX" id="name">
+                  <div class="col-12 col-sm-6 mb-3 mb-sm-0 form-holder">
+                    <label class="form-label pb-3 fs-5 text-deep-purple opacity-75" for="name">Имя</label>
+                    <input class="form-control input-field px-3 pt-4 pb-0 rounded-0 text-deep-purple" type="text" placeholder="XXXXX" id="name">
                   </div>
-                  <div class="col-12 col-sm-6 mb-3 mb-sm-0" id="holder">
-                    <label class="pb-3 fs-5 text-deep-purple opacity-75" for="surname" id="label">Фамилия</label>
-                    <input class="form-control input-field px-3 pt-4 pb-0 rounded-0 text-deep-purple" type="text" aria-describedby="Фамилия" placeholder="XXXXX" id="surname">
+                  <div class="col-12 col-sm-6 mb-3 mb-sm-0 form-holder">
+                    <label class="form-label pb-3 fs-5 text-deep-purple opacity-75" for="surname">Фамилия</label>
+                    <input class="form-control input-field px-3 pt-4 pb-0 rounded-0 text-deep-purple" type="text" placeholder="XXXXX" id="surname">
                   </div>
                 </div>
                 <div class="mb-2 mb-sm-4 d-flex row flex-column flex-sm-row">
-                  <div class="col-12 col-sm-6 mb-3 mb-sm-0" id="holder">
-                    <label class="pb-3 fs-5 text-deep-purple opacity-75" for="email" id="label">Email</label>
-                    <input class="form-control input-field px-3 pt-4 pb-0 rounded-0 text-deep-purple" type="text" aria-describedby="Email" placeholder="XXXXX@mail.ru" id="email">
+                  <div class="col-12 col-sm-6 mb-3 mb-sm-0 form-holder">
+                    <label class="form-label pb-3 fs-5 text-deep-purple opacity-75" for="email">Email</label>
+                    <input class="form-control input-field px-3 pt-4 pb-0 rounded-0 text-deep-purple" type="text" placeholder="XXXXX@mail.ru" id="email">
                   </div>
-                  <div class="col-12 col-sm-6 mb-3 mb-sm-0" id="holder">
-                    <label class="pb-3 fs-5 text-deep-purple opacity-75" for="phone" id="label">Телефон</label>
-                    <input class="form-control input-field px-3 pt-4 pb-0 rounded-0 text-deep-purple" type="text" aria-describedby="Телефон" placeholder="X XXX XXX XX XX" id="phone">
+                  <div class="col-12 col-sm-6 mb-3 mb-sm-0 form-holder">
+                    <label class="form-label pb-3 fs-5 text-deep-purple opacity-75" for="phone">Телефон</label>
+                    <input class="form-control input-field px-3 pt-4 pb-0 rounded-0 text-deep-purple" type="text" placeholder="X XXX XXX XX XX" id="phone">
                   </div>
                 </div>
                 <div class="mb-2 mb-sm-3 row"><span class="fs-5 font-sec text-white text-center text-sm-start mb-2">Выберите цель получения документов:</span>
@@ -149,9 +149,9 @@
                   </div>
                 </div>
                 <div class="mb-4 row">
-                  <div class="col-12" id="holder">
-                    <label class="pb-3 fs-5 text-deep-purple opacity-75" for="custom-field" id="label">Свой вариант</label>
-                    <input class="form-control input-field px-3 pt-4 pb-0 rounded-0 text-deep-purple" type="text" aria-describedby="Свой вариант" placeholder="XXXXX" id="custom-field">
+                  <div class="col-12 form-holder">
+                    <label class="form-label pb-3 fs-5 text-deep-purple opacity-75" for="custom-field">Свой вариант</label>
+                    <input class="form-control input-field px-3 pt-4 pb-0 rounded-0 text-deep-purple" type="text" placeholder="XXXXX" id="custom-field">
                   </div>
                 </div>
                 <button class="col-12 text-uppercase btn btn-purple rounded-0 border border-white p-3 mb-4" type="submit">Войти </button>
@@ -213,9 +213,9 @@
             </svg></a></li>
       </ul>
       <div class="form-check form-switch footer__switcher col-6 align-items-center justify-content-end m-0">
-        <label class="form-check-label text-white pe-2" for="langSwitcher">ENG</label>
-        <input class="form-check-input" type="checkbox" role="switch" id="langSwitcher">
-        <label class="form-check-label text-white ps-2" for="langSwitcher">РУС</label>
+        <label class="form-check-label text-white pe-2" for="langSwitcherFooter">ENG</label>
+        <input class="form-check-input" type="checkbox" role="switch" id="langSwitcherFooter">
+        <label class="form-check-label text-white ps-2" for="langSwitcherFooter">РУС</label>
       </div>
     </div>
   </footer>

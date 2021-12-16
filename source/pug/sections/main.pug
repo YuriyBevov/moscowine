@@ -9,7 +9,7 @@ section.section.main.fp-slide.fp-noscroll(data-anchor="fp-slide_1" data-aos="fad
         button(type="button").col-12.col-md-6.col-lg-10.col-xl-8.text-uppercase.btn.btn-purple.rounded-0.border.border-white.p-2.p-sm-3.px-1.mb-4 Презентация для клиентов
         button(type="button").col-12.col-md-6.col-lg-10.col-xl-8.text-uppercase.btn.btn-purple.rounded-0.border.border-white.p-2.p-sm-3.px-1.mb-5 Презентация для партнёров
 
-        a(href='#investors').scroll-button.p-0.mt-4
+        a(href='#investors' aria-label="Листать вверх").scroll-button.p-0.mt-4
           svg(width="12" height="12")
               use(xlink:href="#icon-arr")
 
@@ -18,20 +18,20 @@ section.section.main.fp-slide.fp-noscroll(data-anchor="fp-slide_1" data-aos="fad
 
         form
           .mb-0.mb-sm-3.d-flex.row.flex-column.flex-sm-row
-            .col-12.col-sm-6.mb-3.mb-sm-0#holder
-              label(for="name")#label.pb-3.fs-5.text-deep-purple.opacity-75 Имя
-              input(type="text" aria-describedby="Имя" placeholder="XXXXX")#name.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
-            .col-12.col-sm-6.mb-3.mb-sm-0#holder
-              label(for="surname")#label.pb-3.fs-5.text-deep-purple.opacity-75 Фамилия
-              input(type="text" aria-describedby="Фамилия" placeholder="XXXXX")#surname.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
+            .col-12.col-sm-6.mb-3.mb-sm-0.form-holder
+              label(for="name").form-label.pb-3.fs-5.text-deep-purple.opacity-75 Имя
+              input(type="text" placeholder="XXXXX")#name.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
+            .col-12.col-sm-6.mb-3.mb-sm-0.form-holder
+              label(for="surname").form-label.pb-3.fs-5.text-deep-purple.opacity-75 Фамилия
+              input(type="text" placeholder="XXXXX")#surname.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
 
           .mb-2.mb-sm-4.d-flex.row.flex-column.flex-sm-row
-            .col-12.col-sm-6.mb-3.mb-sm-0#holder
-              label(for="email")#label.pb-3.fs-5.text-deep-purple.opacity-75 Email
-              input(type="text" aria-describedby="Email" placeholder="XXXXX@mail.ru")#email.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
-            .col-12.col-sm-6.mb-3.mb-sm-0#holder
-              label(for="phone")#label.pb-3.fs-5.text-deep-purple.opacity-75 Телефон
-              input(type="text" aria-describedby="Телефон" placeholder="X XXX XXX XX XX")#phone.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
+            .col-12.col-sm-6.mb-3.mb-sm-0.form-holder
+              label(for="email").form-label.pb-3.fs-5.text-deep-purple.opacity-75 Email
+              input(type="text" placeholder="XXXXX@mail.ru")#email.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
+            .col-12.col-sm-6.mb-3.mb-sm-0.form-holder
+              label(for="phone").form-label.pb-3.fs-5.text-deep-purple.opacity-75 Телефон
+              input(type="text" placeholder="X XXX XXX XX XX")#phone.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
             
           .mb-2.mb-sm-3.row
             span.fs-5.font-sec.text-white.text-center.text-sm-start.mb-2 Выберите цель получения документов:
@@ -45,9 +45,9 @@ section.section.main.fp-slide.fp-noscroll(data-anchor="fp-slide_1" data-aos="fad
                 label(for="analyst").font-sec.text-white Аналитик
 
           .mb-4.row
-            .col-12#holder
-              label(for="custom-field")#label.pb-3.fs-5.text-deep-purple.opacity-75 Свой вариант
-              input(type="text" aria-describedby="Свой вариант" placeholder="XXXXX")#custom-field.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
+            .col-12.form-holder
+              label(for="custom-field").form-label.pb-3.fs-5.text-deep-purple.opacity-75 Свой вариант
+              input(type="text" placeholder="XXXXX")#custom-field.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
                 
           button(type="submit").col-12.text-uppercase.btn.btn-purple.rounded-0.border.border-white.p-3.mb-4 Войти 
 
