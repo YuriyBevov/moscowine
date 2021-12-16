@@ -4,7 +4,7 @@
             <div class="mb-2">
                 <div class="calc__field">
                     <label for="percentRange" 
-                        class="calc__label form-label d-flex align-items-center 
+                        class="calc__label d-flex align-items-center 
                         justify-content-between bg-white p-1 py-3 p-sm-3 mb-0"
                     >
                         <span class="text-deep-purple fs-5">Доля в капитале</span> 
@@ -31,7 +31,7 @@
             <div class="mb-2">
                 <div class="calc__field">
                     <label for="costRange" 
-                        class="calc__label form-label d-flex align-items-center 
+                        class="calc__label d-flex align-items-center 
                         justify-content-between bg-white p-1 py-3 p-sm-3 mb-0"
                     >
                         <span class="text-deep-purple calc__field-title">Начальная стоимость доли</span> 
@@ -59,7 +59,7 @@
             <div class="mb-3">
                 <div class="calc__field">
                     <label for="investTime" 
-                        class="calc__label form-label d-flex align-items-center 
+                        class="calc__label d-flex align-items-center 
                         justify-content-between bg-white p-1 py-3 p-sm-3 mb-0"
                     >
                         <span class="text-deep-purple calc__field-title">Срок инвестирования</span> 
@@ -71,7 +71,6 @@
                                 this.formData.time - 1 === 1 ? 'год' :
                                 this.formData.time - 1 === 2 || this.formData.time - 1 === 3 || this.formData.time - 1 === 4 ? 'годa' : 'лет'
                             }}
-
                         </span>
                     </label>
 
