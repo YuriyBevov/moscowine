@@ -25,10 +25,10 @@
       },
   ]
 
-nav.nav.mb-3
+nav.nav.mb-1
   ul#navList.nav__list.d-flex.p-0.m-0
     each item in navList
       li.nav__item.ms-5(data-menuanchor=item.menuAnchor)
-        a.text-white.font-mono(href='#' + item.menuAnchor)= item.title
+        a.text-white.font-mono(href='#' + item.menuAnchor).nav-link= item.title
   
   

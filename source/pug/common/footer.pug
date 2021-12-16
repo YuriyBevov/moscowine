@@ -38,26 +38,23 @@
   ]
 
 footer.footer
-  .d-flex.align-items-center.container-fluid.p-5.m-0.row
-   
-    //ul.col-4.m-0.footer__page-list
-      each page in pageList
-        li.footer__page-item.d-flex.align-items-center
-          span.text-uppercase.text-white.font-mono=page.num
-          span.separator.mx-3.d-block
-          span.text-uppercase.text-white.font-mono=page.title
+  .container.d-flex.align-items-center.py-3.py-md-4.m-auto.row
     .footer__page-num.col-4.m-0.d-flex.align-items-center
       span.text-uppercase.text-white.font-mono 01
       span.separator.mx-3.d-block
       span.text-uppercase.text-white.font-mono О Компании
-    
 
-    ul.col-8.m-0.d-flex.align-items-center.justify-content-end
+    ul.col-6.col-sm-12.col-lg-8.m-0.p-0.d-flex.align-items-center.justify-content-start.justify-content-sm-center.justify-content-lg-end
       each social in socialList
-        li.footer__social-item.ms-4
+        li.footer__social-item
           a(href="#" aria-label=social.title)
             svg(width="25" height="25")
               use(xlink:href=social.icon)
+
+    .form-check.form-switch.footer__switcher.col-6.align-items-center.justify-content-end.m-0
+      label.form-check-label.text-white.pe-2(for="langSwitcher") ENG
+      input.form-check-input(type="checkbox" role="switch" id="langSwitcher")
+      label.form-check-label.text-white.ps-2(for="langSwitcher") РУС
 
     
       

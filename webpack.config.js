@@ -1,7 +1,9 @@
 const path = require('path');
+const { VueLoaderPlugin} = require('vue-loader')
+
 
 module.exports = {
-  mode: 'production', // сменив на production и запустив gulp build сделает минификацию js
+  mode: 'development', // сменив на production и запустив gulp build сделает минификацию js
   output: {
     filename: './js/bundle.js'
   },
@@ -16,6 +18,10 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       }
     ]
   },
@@ -24,5 +30,8 @@ module.exports = {
     compress: true,
     port: 9000
   },
-  plugins: []
+  plugins: [
+    new VueLoaderPlugin(),
+  ]
 };
+

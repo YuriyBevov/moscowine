@@ -1,0 +1,21 @@
+.main {
+    background-image: url("../assets/img/bg-section_1@1x.jpg");
+
+    &__desc {
+        max-width: 335px;
+    }
+
+    &__form-title {
+        max-width: 350px;
+    }
+
+    
+}
+
+.fullpage-destroyed .main {
+    padding-top: 200px;
+
+    @media(max-width: 960px) {
+        padding-top: 150px;
+    }
+}

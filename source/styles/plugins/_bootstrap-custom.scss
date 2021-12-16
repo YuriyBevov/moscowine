@@ -7,10 +7,18 @@ $font_mono: 'RussoOne-Regular';
 
 $grid-breakpoints: (
   xs: 0,
-  sm: 320px,
+  sm: 540px,
   md: 768px,
-  lg: 1140px,
+  lg: 960px,
   xl: 1440px,
+  xxl: 1920px
+) !default;
+
+$container-max-widths: (
+  sm: 738px,
+  md: 1040px,
+  lg: 1340px,
+  xl: 1820px,
   xxl: 1920px
 ) !default;
 
@@ -87,12 +95,12 @@ $utilities: map-merge(
   $utilities
 );
 
-$h1-font-size:                $font-size-base * 2 !default;     // 32px
+$h1-font-size:                $font-size-base * 3 !default;     // 48px
 $h2-font-size:                $font-size-base * 1.5 !default;   // 24px
 $h3-font-size:                $font-size-base * 1.125 !default; // 18px
-$h4-font-size:                $font-size-base * 0.875 !default; // 14px
-$h5-font-size:                $font-size-base * 0.75 !default;  // 12px
-$h6-font-size:                $font-size-base !default;         // 16px     
+$h4-font-size:                $font-size-base !default;         // 16px  
+$h5-font-size:                $font-size-base * 0.875 !default; // 14px
+$h6-font-size:                $font-size-base * 0.75 !default;  // 12px   
 // scss-docs-end font-variables
 
 // scss-docs-start font-sizes
@@ -118,10 +126,11 @@ $blue       :   #8EB3F5;
 $darkblue   :   #44678D;
 $yellow     :   #EBBF5E ;
 $green      :   #4Caf50;
-$pink       :   #CC6CB9;
+$pink       :   #E63BF4;
 $lightred   :   #EE6161;
 $red        :   #F24646;
-$purple     :   #A169F7;
+$purple     :   #841DA4;
+$purple-900 :   #261947;
 $fire       :   #FF953F;
 
 $white      :   #ffffff;
@@ -136,28 +145,30 @@ $gray-900   :   #222222;
 $black      :   #000000;
 
 $colors: (
-    "blue"      : $blue,
-    "green"     : $green,
-    "red"       : $red,
-    "purple"    : $purple,
-    "yellow"    : $yellow,
-    "pink"      : $pink,
-    "fire"      : $fire,
-    "darkblue"  : $darkblue,
+    "blue"        : $blue,
+    "green"       : $green,
+    "red"         : $red,
+    "purple"      : $purple,
+    "deep-purple" : $purple-900,
+    "yellow"      : $yellow,
+    "pink"        : $pink,
+    "fire"        : $fire,
+    "darkblue"    : $darkblue,
 );
 
-$primary    : $green;
-$secondary  : $gray-800;
-$warning    : $yellow;
-$raspberry  : $lightred;
-$danger     : $red;
-$ocean      : $blue;
-$light-gray : $gray-100;
-$gray       : $gray-300;
-$dark-gray  : $gray-600;
-$pink       : $pink;
-$purple     : $purple;
-$darkblue   : $darkblue;
+$primary      : $green;
+$secondary    : $gray-800;
+$warning      : $yellow;
+$raspberry    : $lightred;
+$danger       : $red;
+$ocean        : $blue;
+$light-gray   : $gray-100;
+$gray         : $gray-300;
+$dark-gray    : $gray-600;
+$pink         : $pink;
+$purple       : $purple;
+$deep-purple  : $purple-900;
+$darkblue     : $darkblue;
 
 $theme-colors: (
   "ocean"           :    $ocean,
@@ -171,6 +182,7 @@ $theme-colors: (
   "fire"            :    $fire,
   "pink"            :    $pink,
   "purple"          :    $purple,
+  "deep-purple"     :    $deep-purple
 ) !default;
 
 $link-decoration: none;
@@ -188,12 +200,25 @@ $form-switch-checked-bg-image:    url("data:image/svg+xml,<svg xmlns='http://www
 
 $form-switch-width:               2.5em !default;
 
-/* $form-switch-padding-start:       $form-switch-width + .5em !default;
-$form-switch-border-radius:       $form-switch-width !default;
-$form-switch-transition:          background-position .15s ease-in-out !default; */
-
-// $form-check-input-active-filter:          brightness(90%);
-
 $form-check-input-bg:                     $pink;
 $form-check-input-border:                 $pink;
 $form-check-input-checked-bg-color:       $pink;
+
+$input-placeholder-color:               $purple-900;
+
+$form-range-track-width:          100%;
+$form-range-track-height:         .5rem;
+$form-range-track-cursor:         pointer;
+$form-range-track-bg:             $pink;
+$form-range-track-active-bg: $pink;
+$form-range-track-border-radius:  0;
+
+$form-range-thumb-width:                   1rem;
+$form-range-thumb-height:                  1rem;
+$form-range-thumb-bg:                      $pink;
+$form-range-thumb-border:                  3px solid $white;
+$form-range-thumb-border-radius:           50%;
+$form-range-thumb-box-shadow:              0px 2px 2px rgba(45, 26, 74, 0.15);
+$form-range-thumb-focus-box-shadow:        0px 2px 2px rgba(45, 26, 74, 0.15);
+$form-range-thumb-active-bg:               $purple;
+$form-range-thumb-transition:              background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;

@@ -1,10 +1,13 @@
 header.header
-  .d-flex.container-fluid.p-5.m-0.row
-   
-    .header__logo.col-4
+  .container.d-flex.align-items-center.py-3.py-lg-5.m-auto.row
+    .header__logo.col-3
       img(src="./assets/img/logo@1x.png"  srcset="./assets/img/logo@2x.png" alt="Логотип" width="182" height="45")
 
-    .header__nav.d-flex.flex-column.align-items-end.ms-auto.col-8
+    a(href='#')#scrollUpBtn.scroll-button.scroll-button--header.p-0
+      svg(width="60" height="60")
+        use(xlink:href="#icon-arr-tr")
+    
+    .header__nav.d-flex.flex-column.align-items-end.ms-auto.col-9
       include ./nav
 
       .form-check.form-switch.header__switcher

@@ -1,0 +1,15 @@
+.calc {
+    background-image: url("../assets/img/bg-section_4@1x.jpg");
+
+    &__desc {
+        max-width: 430px;
+    }
+
+    &__field {
+        height: 65px;
+    }
+
+    &__label {
+        border: 1px solid #cecece;
+    }
+}

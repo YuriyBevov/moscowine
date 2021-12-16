@@ -20,10 +20,31 @@ ul {
   list-style: none;
 }
 
+p {
+    @media(max-width: 540px) {
+        font-size: 14px;
+    }
+}
+
+footer a {
+    transition: opacity 0.3s ease;
+}
+
+footer a:hover,
+footer a:focus {
+    opacity: 0.7;
+}
+
 label,
 input,
 button {
     cursor: pointer;
+}
+
+button {
+    @media(max-width: 540px) {
+        font-size: 14px !important;
+    }
 }
 
 .section {
@@ -31,5 +52,135 @@ button {
     background-size: cover;
     background-position: left;
 }
+
+#holder {
+    height: 50px;
+}
+
+#label {
+    margin-bottom: -50px;
+    padding-left: 17px;
+    padding-top: 2px;
+    position: absolute; 
+}
+
+.input-field {
+    height: 100%;
+}
+
+.checkbox {
+    background-color: transparent !important;
+    border: 1px solid #ffffff !important;
+}
+
+.scroll-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px !important;
+    height: 60px !important;
+
+    @media(max-width: 1439px) {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    padding: 0;
+    border: 1px solid #ffffff;
+    background-color: transparent;
+
+    &--header {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        border: 0;
+        transform: translate(-50%, -100px);
+        transition: transform 0.3s linear;
+        &.active {
+            transform: translate(-50%, 0);
+            
+        }
+    }
+
+    @media(max-width: 960px) {
+        display: none;
+    }
+}
+
+.fp-viewing-company {
+    .fp-tableCell .fade-in-animation  {
+        opacity: 0;
+        transform: translateY(300px);
+        animation: fade-in 1.3s 0.3s ease-in-out forwards;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        transform: translateY(300px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// fp-destroyed
+
+section {
+    height: fit-content;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/*.fp-slide {
+        display: flex !important;
+} */
+
+.fullpage-destroyed {
+    section {
+        display: flex !important;
+    }
+
+    .footer__page-num, nav {
+        display: none !important;
+    }
+
+    .header {
+        background-color: #280e35;
+        box-shadow: #280e35 0 20px 20px -20px
+    }
+
+    .footer {
+        background-color: #280e35;
+        box-shadow: #280e35 0px 20px 20px 15px;
+    }
+}
+
+.text-nowrap {
+    -webkit-mask-image: linear-gradient(90deg, black #{calc(100% - 2rem)}, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(90deg, black #{calc(100% - 2rem)}, rgba(0, 0, 0, 0) 100%);
+    overflow: hidden;
+}
+
+.calc__field-title {
+    font-size: 14px;
+
+    @media(max-width: 540px) {
+        font-size: 12px;
+    }
+}
+
+.calc__field-value {
+    font-size: 20px;
+
+    @media(max-width: 540px) {
+        font-size: 16px;
+    }
+}
+
+
 
 

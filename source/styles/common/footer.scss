@@ -1,9 +1,4 @@
 .footer {
-    /* &__page-list {
-        height: 35px;
-        overflow: hidden;
-    } */
-
     &__page-num {
         span:first-child {
             font-size: 20px;
@@ -16,6 +11,26 @@
             display: block;
             width: 30px;
             border: 1px solid #FFFFFF;
+        }
+    }
+
+    &__switcher {
+        display: none;
+        padding: 0;
+
+        input {
+            margin: 0 !important;
+            height: 20px !important;
+        }
+
+        @media(max-width: 539px) {
+            display: flex;
+        }
+    }
+
+    &__social-item {
+        &:nth-child(2) {
+            margin: 0 20px;
         }
     }
 }

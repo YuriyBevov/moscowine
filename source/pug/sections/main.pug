@@ -1,0 +1,54 @@
+section.section.main.fp-slide.fp-noscroll(data-anchor="fp-slide_1" data-aos="fade-up" data-delay="1000")
+  .container.m-auto
+    .col-12.col-lg-11.col-xl-8.m-auto.d-flex.align-items-start.row.fade-in-animation
+      .d-flex.flex-column.align-items-center.align-items-lg-start.col-12.col-lg-6
+        h1.fs-1.font-mono.text-white.mb-3(data-aos="fade-up" data-delay="500") MoscoWine
+
+        p.main__desc.text-white.text-center.text-lg-start.font-sec.mb-4 Сервис по подбору и резервированию алкогольных напитков.
+
+        button(type="button").col-12.col-md-6.col-lg-10.col-xl-8.text-uppercase.btn.btn-purple.rounded-0.border.border-white.p-2.p-sm-3.px-1.mb-4 Презентация для клиентов
+        button(type="button").col-12.col-md-6.col-lg-10.col-xl-8.text-uppercase.btn.btn-purple.rounded-0.border.border-white.p-2.p-sm-3.px-1.mb-5 Презентация для партнёров
+
+        a(href='#investors').scroll-button.p-0.mt-4
+          svg(width="12" height="12")
+              use(xlink:href="#icon-arr")
+
+      .d-flex.flex-column.col-12.col-lg-6
+        p.main__form-title.font-sec.text-white.mb-3.text-center.m-auto Авторизуйтесь, чтобы скачать материалы для инвесторов.
+
+        form
+          .mb-0.mb-sm-3.d-flex.row.flex-column.flex-sm-row
+            .col-12.col-sm-6.mb-3.mb-sm-0#holder
+              label(for="name")#label.pb-3.fs-5.text-deep-purple.opacity-75 Имя
+              input(type="text" aria-describedby="Имя" placeholder="XXXXX")#name.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
+            .col-12.col-sm-6.mb-3.mb-sm-0#holder
+              label(for="surname")#label.pb-3.fs-5.text-deep-purple.opacity-75 Фамилия
+              input(type="text" aria-describedby="Фамилия" placeholder="XXXXX")#surname.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
+
+          .mb-2.mb-sm-4.d-flex.row.flex-column.flex-sm-row
+            .col-12.col-sm-6.mb-3.mb-sm-0#holder
+              label(for="email")#label.pb-3.fs-5.text-deep-purple.opacity-75 Email
+              input(type="text" aria-describedby="Email" placeholder="XXXXX@mail.ru")#email.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
+            .col-12.col-sm-6.mb-3.mb-sm-0#holder
+              label(for="phone")#label.pb-3.fs-5.text-deep-purple.opacity-75 Телефон
+              input(type="text" aria-describedby="Телефон" placeholder="X XXX XXX XX XX")#phone.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
+            
+          .mb-2.mb-sm-3.row
+            span.fs-5.font-sec.text-white.text-center.text-sm-start.mb-2 Выберите цель получения документов:
+
+            .mb-2.d-flex.col-12.justify-content-center.justify-content-sm-start
+              .form-check.me-4
+                input(type="checkbox" checked)#investor.form-check-input.checkbox
+                label(for="investor").font-sec.text-white Инвестор
+              .form-check.me-4
+                input(type="checkbox" checked)#analyst.form-check-input.checkbox
+                label(for="analyst").font-sec.text-white Аналитик
+
+          .mb-4.row
+            .col-12#holder
+              label(for="custom-field")#label.pb-3.fs-5.text-deep-purple.opacity-75 Свой вариант
+              input(type="text" aria-describedby="Свой вариант" placeholder="XXXXX")#custom-field.form-control.input-field.px-3.pt-4.pb-0.rounded-0.text-deep-purple
+                
+          button(type="submit").col-12.text-uppercase.btn.btn-purple.rounded-0.border.border-white.p-3.mb-4 Войти 
+
+        
