@@ -9836,6 +9836,7 @@ __webpack_require__.r(__webpack_exports__);
     data() {
         return {
             
+            isResultShowed: false,
 
             formData: {
                 percent: 1,
@@ -9853,22 +9854,22 @@ __webpack_require__.r(__webpack_exports__);
     methods: {
         sendFormData() {
             console.log('sendFormData', this.formData)
-
-            this.costTotal = String(Math.floor(2678 * Math.random(1, 10))),
-            this.percentTotal=  String(Math.floor(100 * Math.random(1, 10)))
+            this.isResultShowed = true
         },
 
         getCalcData(arrayName, time, percent = null) {
             if(arrayName === 'totalPercent') {
-                return _data_calc_data_js__WEBPACK_IMPORTED_MODULE_0__["calcData"][arrayName][time - 1]
+                return _data_calc_data_js__WEBPACK_IMPORTED_MODULE_0__["calcData"][arrayName][time]
             } else {
-                return _data_calc_data_js__WEBPACK_IMPORTED_MODULE_0__["calcData"][arrayName][time - 1][percent - 1]
+                return _data_calc_data_js__WEBPACK_IMPORTED_MODULE_0__["calcData"][arrayName][time][percent - 1]
             }
         },
 
         setCalcData() {
+            this.isResultShowed = false
+            
             let percent = Number(this.formData.percent)
-            let time = Number(this.formData.time)
+            let time = Number(this.formData.time) - 1
             
             this.percentTotal = this.getCalcData('totalPercent', time)
             this.costTotal = this.getCalcData('totalCost', time, percent )
@@ -10057,14 +10058,20 @@ var render = function () {
                   [
                     _vm._v(
                       "\n                        " +
-                        _vm._s(this.formData.time) +
+                        _vm._s(
+                          this.formData.time - 1 === 0
+                            ? "-"
+                            : this.formData.time - 1
+                        ) +
                         " \n\n                        " +
                         _vm._s(
-                          this.formData.time === "1"
+                          this.formData.time - 1 === 0
+                            ? ""
+                            : this.formData.time - 1 === 1
                             ? "год"
-                            : this.formData.time === "2" ||
-                              this.formData.time === "3" ||
-                              this.formData.time === "4"
+                            : this.formData.time - 1 === 2 ||
+                              this.formData.time - 1 === 3 ||
+                              this.formData.time - 1 === 4
                             ? "годa"
                             : "лет"
                         ) +
@@ -10086,7 +10093,7 @@ var render = function () {
               ],
               staticClass: "form-range position-relative",
               staticStyle: { top: "-16px" },
-              attrs: { type: "range", id: "investTime", min: "1", max: "5" },
+              attrs: { type: "range", id: "investTime", min: "1", max: "6" },
               domProps: { value: _vm.formData.time },
               on: {
                 input: function ($event) {
@@ -10137,7 +10144,11 @@ var render = function () {
                 staticClass:
                   "text-white text-end text-sm-start fs-3 fw-bold col-6 col-sm-12",
               },
-              [_vm._v(_vm._s(_vm.costTotal) + " $")]
+              [
+                _vm._v(
+                  _vm._s(_vm.isResultShowed ? this.costTotal : "XX XXX") + " $"
+                ),
+              ]
             ),
           ]
         ),
@@ -10156,7 +10167,11 @@ var render = function () {
                 staticClass:
                   "text-white text-end text-sm-start fs-3 fw-bold col-6 col-sm-12",
               },
-              [_vm._v(_vm._s(_vm.percentTotal) + "%")]
+              [
+                _vm._v(
+                  _vm._s(_vm.isResultShowed ? this.percentTotal : "XX") + "%"
+                ),
+              ]
             ),
           ]
         ),
@@ -10185,12 +10200,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "d-flex align-items-center justify-content-between" },
-      [
-        _c("span", { staticClass: "text-white" }, [_vm._v("1 год")]),
-        _vm._v(" "),
-        _c("span", { staticClass: "text-white" }, [_vm._v("5 лет")]),
-      ]
+      { staticClass: "d-flex align-items-center justify-content-end" },
+      [_c("span", { staticClass: "text-white" }, [_vm._v("5 лет")])]
     )
   },
 ]
@@ -19229,7 +19240,7 @@ const calcData =
             ]
         ],
 
-        totalPercent: [ 93,287,480,674,867 ]
+        totalPercent: [ 0, 93,287,480,674,867 ]
         
     }
 

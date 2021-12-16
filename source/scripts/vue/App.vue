@@ -64,11 +64,12 @@
                     >
                         <span class="text-deep-purple calc__field-title">Срок инвестирования</span> 
                         <span class="text-deep-purple calc__field-value">
-                            {{this.formData.time}} 
+                            {{ this.formData.time - 1 === 0 ? '-' : this.formData.time - 1 }} 
 
                             {{ 
-                                this.formData.time === '1' ? 'год' :
-                                this.formData.time === '2' || this.formData.time === '3' || this.formData.time === '4' ? 'годa' : 'лет'
+                                this.formData.time - 1 === 0 ? '' :
+                                this.formData.time - 1 === 1 ? 'год' :
+                                this.formData.time - 1 === 2 || this.formData.time - 1 === 3 || this.formData.time - 1 === 4 ? 'годa' : 'лет'
                             }}
 
                         </span>
@@ -80,13 +81,12 @@
                         class="form-range position-relative"
                         style="top: -16px;"
                         id="investTime" 
-                        min="1" max="5"
+                        min="1" max="6"
                         @input="setCalcData()"
                     >
                 </div>
 
-                <div class="d-flex align-items-center justify-content-between">
-                    <span class="text-white">1 год</span>
+                <div class="d-flex align-items-center justify-content-end">
                     <span class="text-white">5 лет</span>
                 </div>
             </div>
@@ -103,12 +103,12 @@
         <div class="d-flex align-items-center row">
             <div class="d-flex flex-row flex-sm-column col-12 col-sm-6 mb-3 mb-sm-0">
                 <span class="text-white fs-5 col-6 col-sm-12">Итоговая стоимость доли</span>
-                <span class="text-white text-end text-sm-start fs-3 fw-bold col-6 col-sm-12">{{ costTotal }} $</span>
+                <span class="text-white text-end text-sm-start fs-3 fw-bold col-6 col-sm-12">{{ isResultShowed ? this.costTotal : 'XX XXX' }} $</span>
             </div>
 
             <div class="d-flex flex-row flex-sm-column col-12 col-sm-6">
                 <span class="text-white fs-5 col-6 col-sm-12">Процент годовой  доходности</span>
-                <span class="text-white text-end text-sm-start fs-3 fw-bold col-6 col-sm-12">{{ percentTotal }}%</span>
+                <span class="text-white text-end text-sm-start fs-3 fw-bold col-6 col-sm-12">{{ isResultShowed ? this.percentTotal : 'XX' }}%</span>
             </div>
         </div>
     </div>
@@ -122,6 +122,7 @@
         data() {
             return {
                 
+                isResultShowed: false,
 
                 formData: {
                     percent: 1,
@@ -139,22 +140,22 @@
         methods: {
             sendFormData() {
                 console.log('sendFormData', this.formData)
-
-                this.costTotal = String(Math.floor(2678 * Math.random(1, 10))),
-                this.percentTotal=  String(Math.floor(100 * Math.random(1, 10)))
+                this.isResultShowed = true
             },
 
             getCalcData(arrayName, time, percent = null) {
                 if(arrayName === 'totalPercent') {
-                    return calcData[arrayName][time - 1]
+                    return calcData[arrayName][time]
                 } else {
-                    return calcData[arrayName][time - 1][percent - 1]
+                    return calcData[arrayName][time][percent - 1]
                 }
             },
 
             setCalcData() {
+                this.isResultShowed = false
+                
                 let percent = Number(this.formData.percent)
-                let time = Number(this.formData.time)
+                let time = Number(this.formData.time) - 1
                 
                 this.percentTotal = this.getCalcData('totalPercent', time)
                 this.costTotal = this.getCalcData('totalCost', time, percent )

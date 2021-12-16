@@ -54,7 +54,7 @@ const calcData =
             ]
         ],
 
-        totalPercent: [ 93,287,480,674,867 ]
+        totalPercent: [ 0, 93,287,480,674,867 ]
         
     }
 
