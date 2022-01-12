@@ -45,6 +45,11 @@ const clean = () => {
   return del(BUILD_PATH);
 }
 
+const files = () => {
+  return gulp.src([PATHS.files.src])
+  .pipe(gulp.dest(PATHS.files.output));
+}
+
 const fonts = () => {
   return gulp.src([PATHS.fonts.src])
   .pipe(gulp.dest(PATHS.fonts.output));
@@ -132,7 +137,7 @@ const sprite = () => {
     .pipe(gulp.dest(PATHS.images.spriteDest));
 }
 
-const build = gulp.series(clean, fonts, sprite, html, styles, js, images);
+const build = gulp.series(clean, files, fonts, sprite, html, styles, js, images);
 const start = gulp.series(build, server);
 const convertToWebp = gulp.series(toWebp, start);
 

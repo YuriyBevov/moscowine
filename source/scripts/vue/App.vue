@@ -35,7 +35,7 @@
                         justify-content-between bg-white p-1 py-3 p-sm-3 mb-0"
                     >
                         <span class="text-deep-purple calc__field-title">Начальная стоимость доли</span> 
-                        <span class="text-deep-purple calc__field-value">{{this.formData.currentCost}}$</span>
+                        <span class="text-deep-purple calc__field-value">{{this.formData.currentCost | format}}$</span>
                     </label>
 
                     <input 
@@ -51,8 +51,8 @@
                 </div>
 
                 <div class="d-flex align-items-center justify-content-between">
-                    <span class="text-white">{{this.formData.costFrom}} $</span>
-                    <span class="text-white">{{this.formData.costTo}} $</span>
+                    <span class="text-white">{{this.formData.costFrom | format}} $</span>
+                    <span class="text-white">{{this.formData.costTo | format}} $</span>
                 </div>
             </div>
 
@@ -102,7 +102,9 @@
         <div class="d-flex align-items-center row">
             <div class="d-flex flex-row flex-sm-column col-12 col-sm-6 mb-3 mb-sm-0">
                 <span class="text-white fs-5 col-6 col-sm-12">Итоговая стоимость доли</span>
-                <span class="text-white text-end text-sm-start fs-3 fw-bold col-6 col-sm-12">{{ isResultShowed ? this.costTotal : 'XX XXX' }} $</span>
+
+                <span class="text-white text-end text-sm-start fs-3 fw-bold col-6 col-sm-12" v-if="isResultShowed">{{ this.costTotal | format }}$</span>
+                <span class="text-white text-end text-sm-start fs-3 fw-bold col-6 col-sm-12" v-else>XX XXX $</span>
             </div>
 
             <div class="d-flex flex-row flex-sm-column col-12 col-sm-6">
@@ -140,6 +142,10 @@
             }
         },
 
+        filters: {
+            format: val => `${val}`.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 '),
+        },
+
         methods: {
             sendFormData() {
                 // console.log('sendFormData', this.formData)
@@ -166,6 +172,8 @@
                 this.formData.costFrom = this.getCalcData('start', time , 1 )
                 this.formData.costTo = this.getCalcData('start', time, 15 )
                 this.formData.currentCost = this.getCalcData('start', time, percent )
+
+
             },
 
             initCalc() {

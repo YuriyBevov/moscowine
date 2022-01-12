@@ -3,6 +3,11 @@ const BUILD_PATH = 'build/';
 
 const PATHS = {
 
+  files: {
+    src: `${SOURCE_PATH}assets/files/**/*.pdf`,
+    output: `${BUILD_PATH}files/`,
+  },
+
   fonts: {
     src: `${SOURCE_PATH}fonts/**/*.{woff,woff2}`,
     output: `${BUILD_PATH}fonts/`,
