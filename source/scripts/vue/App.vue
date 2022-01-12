@@ -99,7 +99,7 @@
             </button>
         </form>
 
-        <div class="d-flex align-items-center row">
+        <div class="d-flex align-items-center row mb-3 mb-xl-4">
             <div class="d-flex flex-row flex-sm-column col-12 col-sm-6 mb-3 mb-sm-0">
                 <span class="text-white fs-5 col-6 col-sm-12">Итоговая стоимость доли</span>
 
@@ -116,6 +116,8 @@
                 </span>
             </div>
         </div>
+
+        <span class="text-white fs-6 col-12">* Прогноз строится на основе аналогичных показателей компаний электронной коммерции и не является обязательством по выплате в подобном размере.</span>
     </div>
 </template>
 
