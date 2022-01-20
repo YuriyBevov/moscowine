@@ -23,12 +23,18 @@
           title: 'Калькулятор',
           isActive: false
       },
+
+      {
+          menuAnchor: 'news',
+          title: 'Новости',
+          isActive: false
+      },
   ]
 
 nav.nav.mb-1
   ul#navList.nav__list.d-flex.p-0.m-0
     each item in navList
-      li.nav__item.ms-5(data-menuanchor=item.menuAnchor)
+      li.nav__item.ms-3(data-menuanchor=item.menuAnchor)
         a.text-white.font-mono(href='#' + item.menuAnchor).nav-link= item.title
   
   

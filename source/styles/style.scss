@@ -7,6 +7,7 @@
 @import  "../../node_modules/bootstrap/scss/bootstrap";
 @import "./plugins/fullpage";
 @import "./plugins/_fullpage-custom.scss";
+@import "./plugins/swiper";
 
 // blocks
 @import "common/header";
@@ -16,8 +17,6 @@
 @import "./sections/investors";
 @import "./sections/partners";
 @import "./sections/calculator";
+@import "./sections/news";
 
 @import "common/footer";
-
-
-

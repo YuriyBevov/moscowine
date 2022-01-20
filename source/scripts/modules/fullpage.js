@@ -19,7 +19,7 @@ function initFullPage() {
 		slidesNavigation: true,
 	
 		menu: '#navList',
-		anchors: ['company', 'investors', 'partners', 'calculator'],
+		anchors: ['company', 'investors', 'partners', 'calculator', 'news'],
 	
 		afterLoad: function(origin, destination, direction){
 			let pageNum = document.querySelector('.footer__page-num span:first-child');
@@ -64,10 +64,18 @@ function initFullPage() {
 				pageTitle.innerHTML = 'Калькулятор'
 				scrollUpBtn.setAttribute('href', "#partners")
 			}
+
+			if(destination.anchor === 'news') {
+				!scrollUpBtn.classList.contains('active') ?
+				scrollUpBtn.classList.add('active') : null
+	
+				pageTitle.innerHTML = 'Новости'
+				scrollUpBtn.setAttribute('href', "#calculator")
+			}
 		},
 	
 		afterResize: function(width, height){
-			if(width < 960 && isInited || height < 600 && isInited) {
+			if(width < 960 && isInited || height < 875 && isInited) {
 				fullpage_api.destroy('all');
 				body.classList.add('fullpage-destroyed');
 				isInited = false;
