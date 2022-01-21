@@ -85,10 +85,11 @@ function initFullPage() {
 }
 
 function init() {
-	if(window.innerWidth > 960 && !isInited){
+	if(window.innerWidth > 960 && window.innerHeight > 875 && !isInited){
+		isInited = true;
 		initFullPage();
 		body.classList.contains('fullpage-destroyed') ?
-		body.classList.remove('fullpage-destroyed') : null
+		body.classList.remove('fullpage-destroyed') : null;
 	} 
 }
 

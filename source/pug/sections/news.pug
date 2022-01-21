@@ -41,7 +41,7 @@ section.section.news.fp-slide.fp-noscroll(data-anchor="fp-slide_5")
     .col-12.col-sm-10.col-md-7.col-lg-6.d-flex.flex-column.align-items-center.m-auto.p-0
       h2.fs-1.font-mono.text-white.mb-3.mb-sm-4.text-uppercase НОВОСТИ
 
-      p.text-white.text-center.font-sec.mb-4.mb-sm-5 В этом разделе вы можете читать новости и предложении компании MoscoWine
+      p.text-white.text-center.font-sec.mb-4.mb-sm-4 В этом разделе вы можете читать новости и предложении компании MoscoWine
 
     .swiper-container.col-12
         .swiper.news__slider.col-12.col-sm-10.col-xl-8.mb-4
@@ -50,8 +50,8 @@ section.section.news.fp-slide.fp-noscroll(data-anchor="fp-slide_5")
                     .swiper-slide.news__slider-item
                         img(src=item.img + '@1x.jpg' alt=item.title)
                         .news__slider-content.d-flex.flex-column.align-items-center.bg-white.p-3
-                            h3.font-sec.text-center.mb-2.fw-semi.fs-3= item.title
-                            p.font-sec.text-center.text-light.mb-3!= item.text
+                            h3.font-sec.text-center.mb-3.fw-semi.fs-3= item.title
+                            p.font-sec.text-center.text-light.mb-4!= item.text
                             a(href="#").btn.btn-outline-black.rounded-0.py-2.px-4.mb-2= item.button_text
                             
         .swiper-button-prev.news-slider-button-prev
