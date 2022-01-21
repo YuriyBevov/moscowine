@@ -49,9 +49,9 @@ section.section.news.fp-slide.fp-noscroll(data-anchor="fp-slide_5")
                 each item in array
                     .swiper-slide.news__slider-item
                         img(src=item.img + '@1x.jpg' alt=item.title)
-                        .news__slider-content.d-flex.flex-column.align-items-center.bg-white.p-3
-                            h3.font-sec.text-center.mb-3.fw-semi.fs-3= item.title
-                            p.font-sec.text-center.text-light.mb-4!= item.text
+                        .news__slider-content.d-flex.flex-column.align-items-center.bg-white.p-4
+                            h3.font-sec.text-center.mb-2.fw-semi.fs-3= item.title
+                            p.font-sec.text-center.text-light.mb-3!= item.text
                             a(href="#").btn.btn-outline-black.rounded-0.py-2.px-4.mb-2= item.button_text
                             
         .swiper-button-prev.news-slider-button-prev
