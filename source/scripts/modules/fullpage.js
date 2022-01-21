@@ -84,13 +84,43 @@ function initFullPage() {
 	});
 }
 
+
+// блоки, которые должны быть одинаковыми по высоте, 
+// чтобы фон подстраивался зеркально
+let investors = document.querySelector('.investors');
+let partners = document.querySelector('.partners');
+
+// блоки, которые должны быть одинаковыми по высоте, 
+// чтобы фон подстраивался зеркально
+let calc = document.querySelector('.calc');
+let news = document.querySelector('.news');
+
+function setEqualHeight(section_1, section_2) {
+    if(section_1.offsetHeight !== section_2.offsetHeight) {
+       section_1.offsetHeight > section_2.offsetHeight ?
+       section_2.style.height = section_1.offsetHeight + 'px':
+       section_1.offsetHeight < section_2.offsetHeight ?
+       section_1.style.height = section_2.offsetHeight + 'px' : null;
+    }
+};
+
 function init() {
 	if(window.innerWidth > 960 && window.innerHeight > 875 && !isInited){
 		isInited = true;
 		initFullPage();
 		body.classList.contains('fullpage-destroyed') ?
 		body.classList.remove('fullpage-destroyed') : null;
-	} 
+
+		setTimeout(() => {
+			setEqualHeight(investors, partners);
+			setEqualHeight(calc, news);
+		}, 100);
+	}
+
+	setTimeout(() => {
+		setEqualHeight(investors, partners);
+    	setEqualHeight(calc, news);
+	}, 100);
 }
 
 window.addEventListener('resize', () => {
