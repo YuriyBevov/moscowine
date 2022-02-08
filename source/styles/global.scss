@@ -48,6 +48,15 @@ button {
 }
 
 .section {
+
+    /*& .container {
+        max-height: calc(100vh - 300px);
+
+        overscroll-behavior: contain;
+        overflow-y: auto;
+        outline: 1px solid red;
+    } */
+
     background-color: #5e2873;
     background-size: cover;
 
@@ -109,7 +118,7 @@ button {
         }
     }
 
-    @media(max-width: 960px) {
+    @media(max-width: 960px), (max-height: 875px) {
         display: none;
     }
 }

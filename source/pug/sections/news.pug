@@ -36,23 +36,78 @@
       },
   ]
 
-section.section.news.fp-slide.fp-noscroll(data-anchor="fp-slide_5")
+- 
+  const newsList = [
+    {
+        title: 'Рынок алкогольных напитков 2018',
+        text: 'В последнее время на рынке наблюдается стабильный рост импорта алкогольных напитков на фоне снижения производства и продаж отечественных. Обращаясь к данным Федеральной таможенной службы и Росстата, в прошлом году поставки импортного алкоголя в Россию увеличились на 40%, а производство российского сократилось на 13.4%.',
+        link: 'Подробнее',
+        linkUrl: '#'
+    },
+    
+    {
+        title: '«Сухая» лазейка: как продвигать алкоголь в России после запрета на рекламу',
+        text: 'Дружба с ресторанами, продвинутый сайт, новый рецепт для коктейля — производители алкогольной продукции ищут новые способы для продвижения на рынке.',
+        link: 'Подробнее',
+        linkUrl: '#'
+    },
+
+    {
+        title: 'Бум легких инвестиций закончился: пять вызовов для маркетплейсов',
+        text: 'Александр Смыслов, управляющий директор алкогольного маркетплейса Moscowine, рассказывает о проблемах, с которыми предстоит столкнуться, если вы намерены создать свой маркетплейс.',
+        link: 'Подробнее',
+        linkUrl: '#'
+    },
+
+    {
+        title: 'Капитаны бизнеса: Как устроен маркетплейс вина?',
+        text: 'Поговорим о том, как устроен рынок алкоголя, чем отличается дорогое вино от дешёвого и кто основной потребитель в России. Почему импортное вино дешевле? Кто принимает решение о покупке на этом рынке? Какая страна популярнее в России? Какие каналы работают в маркетинге продукции? Средний чек на этом рынке? Кто может быть настоящим спецом в этой отрасли?',
+        link: 'Подробнее',
+        linkUrl: '#'
+    },
+
+    {
+        title: '«Революция свершилась – ретейлеры сделали вино как никогда дешевым и доступным»',
+        text: 'В последние годы алкогольный ретейл меняется на глазах. Созвучно теории «вызова-ответа» А. Тойнби он сталкивается с серьезными проблемами и ищет пути их решения, испытывая революционные изменения. Комментирует Александр Смыслов, управляющий директор Moscowine.ru',
+        link: 'Подробнее',
+        linkUrl: '#'
+    },
+
+    {
+        title: 'Залезть в бутылку: как любитель вина заработал миллион, продавая пиво футбольным фанатам на ЧМ-2018, — и потратил его на винный бар',
+        text: 'Истину в вине Егор Колосов разглядел не сразу: он учился на психфаке, работал менеджером в рекламном агентстве и занимался семейным строительным бизнесом. ',
+        link: 'Подробнее',
+        linkUrl: '#'
+    }
+  ]
+
+section.section.news.fp-slide.fp-scrollable(data-anchor="fp-slide_5")
   .container.d-flex.align-items-start.m-auto.row
     .col-12.col-sm-10.col-md-7.col-lg-6.d-flex.flex-column.align-items-center.m-auto.p-0
       h2.fs-1.font-mono.text-white.mb-3.mb-sm-4.text-uppercase НОВОСТИ
 
       p.text-white.text-center.font-sec.mb-4.mb-sm-4 В этом разделе вы можете читать новости и предложении компании MoscoWine
 
-    .swiper-container.col-12
-        .swiper.news__slider.col-12.col-sm-10.col-xl-8.mb-4
-            .swiper-wrapper
-                each item in array
-                    .swiper-slide.news__slider-item
-                        img(src=item.img + '@1x.jpg' alt=item.title)
-                        .news__slider-content.d-flex.flex-column.align-items-center.bg-white.p-4
-                            h3.font-sec.text-center.mb-2.fw-semi.fs-3= item.title
-                            p.font-sec.text-center.text-light.mb-3!= item.text
-                            a(href="#").btn.btn-outline-black.rounded-0.py-2.px-4.mb-2= item.button_text
-                            
-        .swiper-button-prev.news-slider-button-prev
-        .swiper-button-next.news-slider-button-next
+      ul.news__list.col-12.p-0
+        each news in newsList
+          li.news__item.border-bottom.border-white.py-5
+            h3.col-9.text-white.font-sec.mb-3.fs-2= news.title
+            p.text-white.font-sec.mb-3= news.text 
+            a(href= news.linkUrl).text-white.text-uppercase.d-flex.align-items-center= news.link
+              svg(width="6" height="16").ms-1
+                use(xlink:href="#icon-link-more")
+              svg(width="6" height="16")
+                use(xlink:href="#icon-link-more")
+        //.swiper-container.col-12
+            .swiper.news__slider.col-12.col-sm-10.col-xl-8.mb-4
+                .swiper-wrapper
+                    each item in array
+                        .swiper-slide.news__slider-item
+                            img(src=item.img + '@1x.jpg' alt=item.title)
+                            .news__slider-content.d-flex.flex-column.align-items-center.bg-white.p-4
+                                h3.font-sec.text-center.mb-2.fw-semi.fs-3= item.title
+                                p.font-sec.text-center.text-light.mb-3!= item.text
+                                a(href="#").btn.btn-outline-black.rounded-0.py-2.px-4.mb-2= item.button_text
+                                
+            .swiper-button-prev.news-slider-button-prev
+            .swiper-button-next.news-slider-button-next

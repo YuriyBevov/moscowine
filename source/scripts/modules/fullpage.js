@@ -1,3 +1,7 @@
+
+
+import '../vendors/scrolloverflow.min.js';
+
 import fullpage from 'fullpage.js';
 
 let isInited = false;
@@ -20,6 +24,7 @@ function initFullPage() {
 	
 		menu: '#navList',
 		anchors: ['company', 'investors', 'partners', 'calculator', 'news'],
+		scrollOverflow: true,
 	
 		afterLoad: function(origin, destination, direction){
 			let pageNum = document.querySelector('.footer__page-num span:first-child');
@@ -84,7 +89,6 @@ function initFullPage() {
 	});
 }
 
-
 // блоки, которые должны быть одинаковыми по высоте, 
 // чтобы фон подстраивался зеркально
 let investors = document.querySelector('.investors');
@@ -112,14 +116,22 @@ function init() {
 		body.classList.remove('fullpage-destroyed') : null;
 
 		setTimeout(() => {
+			console.log('height2')
+			setEqualHeight(investors, partners);
+			//setEqualHeight(calc, news);
+		}, 100);
+	} else {
+		setTimeout(() => {
+			console.log('height3')
 			setEqualHeight(investors, partners);
 			setEqualHeight(calc, news);
 		}, 100);
 	}
 
 	setTimeout(() => {
+		console.log('height1')
 		setEqualHeight(investors, partners);
-    	setEqualHeight(calc, news);
+    	//setEqualHeight(calc, news);
 	}, 100);
 }
 
