@@ -92,7 +92,7 @@
 
             <button
                 type="button"
-                class="col-12 text-uppercase btn btn-purple rounded-0 border border-white p-2 p-sm-3 mb-2"
+                class="col-12 text-uppercase btn btn-purple rounded-pill p-2 p-sm-3 mb-3"
                 @click.stop="sendFormData()"
             >
                 Рассчитать ожидаемый доход

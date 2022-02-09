@@ -3,6 +3,7 @@
 $font_prim: 'OpenSans-Regular';
 $font_prim_bold: 'OpenSans-Bold';
 $font_sec: 'Montserrat-Regular';
+$font_sec_med: 'Montserrat-Medium';
 $font_mono: 'RussoOne-Regular';
 
 $grid-breakpoints: (
@@ -74,6 +75,7 @@ $utilities: map-merge(
         reg: $font_prim,
         bold: $font_prim_bold,
         sec: $font_sec,
+        sec-med: $font_sec_med,
         mono: $font_mono,
       )
     ),

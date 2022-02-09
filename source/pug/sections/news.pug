@@ -84,14 +84,13 @@
 section.section.news.fp-slide.fp-scrollable(data-anchor="fp-slide_5")
   .container.d-flex.align-items-start.m-auto.row
     .col-12.col-sm-10.col-md-7.col-lg-6.d-flex.flex-column.align-items-center.m-auto.p-0
-      h2.fs-1.font-mono.text-white.mb-3.mb-sm-4.text-uppercase НОВОСТИ
-
+      h2.fs-1.font-sec-med.text-white.mb-3.mb-sm-4.text-uppercase НОВОСТИ
       p.text-white.text-center.font-sec.mb-4.mb-sm-4 В этом разделе вы можете читать новости и предложении компании MoscoWine
 
       ul.news__list.col-12.p-0
         each news in newsList
           li.news__item.border-bottom.border-white.py-5
-            h3.col-9.text-white.font-sec.mb-3.fs-2= news.title
+            h3.col-12.col-md-9.text-white.font-sec.mb-3.fs-2= news.title
             p.text-white.font-sec.mb-3= news.text 
             a(href= news.linkUrl).text-white.text-uppercase.d-flex.align-items-center= news.link
               svg(width="6" height="16").ms-1

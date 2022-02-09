@@ -1,51 +1,53 @@
 .calc {
     .webp & {
-        background-image: url("../assets/img/bg-section_4@1x.webp");
+        background-image: url("../assets/img/bg-section_41@1x.webp");
 
         @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
-            background-image: url("../assets/img/bg-section_4@2x.webp");
+            background-image: url("../assets/img/bg-section_41@2x.webp");
           }
   
           @media(max-width: 960px) {
-            background-image: url("../assets/img/bg-section-tablet_4@1x.webp");
+            background-image: url("../assets/img/bg-section-tablet_41@1x.webp");
   
             @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
-              background-image: url("../assets/img/bg-section-tablet_4@2x.webp");
+              background-image: url("../assets/img/bg-section-tablet_41@2x.webp");
             }
           }
   
           @media(max-width: 480px) {
-            background-image: url("../assets/img/bg-section-mobile_4@1x.webp");
+            background-image: url("../assets/img/bg-section-mobile_41@1x.webp");
   
             @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
-              background-image: url("../assets/img/bg-section-mobile_4@2x.webp");
+              background-image: url("../assets/img/bg-section-mobile_41@2x.webp");
             }
           }
         }
       
         .no-webp & {
-          background-image: url("../assets/img/bg-section_4@1x.jpg");
+          background-image: url("../assets/img/bg-section_41@1x.jpg");
       
           @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
-            background-image: url("../assets/img/bg-section_4@2x.jpg");
+            background-image: url("../assets/img/bg-section_41@2x.jpg");
           }
   
           @media(max-width: 960px) {
-            background-image: url("../assets/img/bg-section-tablet_4@1x.jpg");
+            background-image: url("../assets/img/bg-section-tablet_41@1x.jpg");
       
             @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
-              background-image: url("../assets/img/bg-section-tablet_4@2x.jpg");
+              background-image: url("../assets/img/bg-section-tablet_41@2x.jpg");
             }
           }
   
           @media(max-width: 480px) {
-            background-image: url("../assets/img/bg-section-mobile_4@1x.jpg");
+            background-image: url("../assets/img/bg-section-mobile_41@1x.jpg");
       
             @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
-              background-image: url("../assets/img/bg-section-mobile_4@2x.jpg");
+              background-image: url("../assets/img/bg-section-mobile_41@2x.jpg");
             }
           }
-      }
+    }
+
+    background-position: left bottom !important;
 
     &__desc {
         max-width: 460px;

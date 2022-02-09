@@ -57,7 +57,7 @@ button {
         outline: 1px solid red;
     } */
 
-    background-color: #5e2873;
+    //background-color: #5e2873;
     background-size: cover;
 
     &:nth-child(even) {
@@ -147,6 +147,8 @@ section {
     height: fit-content;
     min-height: 100vh;
     width: 100%;
+    background: rgb(166,61,117);
+    background: linear-gradient(0deg, rgba(166,61,117,1) 0%, rgba(29,20,46,1) 35%, rgba(29,20,46,1) 65%, rgba(166,61,117,1) 100%);
 }
 
 .fullpage-destroyed {
@@ -206,6 +208,10 @@ section {
 
 ::-webkit-scrollbar-thumb {
     background-color: #b3508f;
+}
+
+h2 {
+    letter-spacing: 0.02em;
 }
 
 

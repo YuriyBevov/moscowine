@@ -11,7 +11,7 @@ body.classList.add('fullpage-destroyed');
 
 function initFullPage() {
 	isInited = true;
-	new fullpage('#fullpage', {
+	let fp = new fullpage('#fullpage', {
 		licenseKey: 'D981602C-940F4E9F-B5104540-EB7B7079',
 	
 		paddingTop: '150px',
@@ -84,6 +84,8 @@ function initFullPage() {
 				fullpage_api.destroy('all');
 				body.classList.add('fullpage-destroyed');
 				isInited = false;
+
+				console.log(fp)
 			}
 		}
 	});
@@ -120,13 +122,13 @@ function init() {
 			setEqualHeight(investors, partners);
 			//setEqualHeight(calc, news);
 		}, 100);
-	} else {
-		setTimeout(() => {
+	} //else {
+		/*setTimeout(() => {
 			console.log('height3')
 			setEqualHeight(investors, partners);
 			setEqualHeight(calc, news);
-		}, 100);
-	}
+		}, 100);*/
+	//}
 
 	setTimeout(() => {
 		console.log('height1')
