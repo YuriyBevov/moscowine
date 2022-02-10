@@ -1,7 +1,9 @@
 .calc {
     & .container {
       position: relative;
+      overflow: hidden;
     }
+    
     &__bg {
       background-repeat: no-repeat;
       background-size: contain;
