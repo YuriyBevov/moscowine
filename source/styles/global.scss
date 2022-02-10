@@ -49,6 +49,8 @@ button {
 
 body {
     position: relative;
+    overflow: hidden;
+    overflow-y: auto;
 
     &::before,
     &::after {
