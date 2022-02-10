@@ -31388,6 +31388,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _vue_main_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./vue/main.js */ "./source/scripts/vue/main.js");
 
 
+let calcSection = document.querySelector('.calc .container');
+let calcSectionBg = document.querySelector('.calc__bg');
+
+let observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+        if(entry.isIntersecting) {
+            /* objectList.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            }) */
+            console.log('in viewport')
+
+            !calcSectionBg.classList.contains('js-intersected') ?
+            calcSectionBg.classList.add('js-intersected') : null;
+        }
+    });
+});
+
+observer.observe(calcSection);
+
+
+
 
 
 
@@ -31415,9 +31437,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
 let isInited = false;
 
 let body = document.querySelector('body');
@@ -31425,7 +31444,8 @@ body.classList.add('fullpage-destroyed');
 
 function initFullPage() {
 	isInited = true;
-	let fp = new fullpage_js__WEBPACK_IMPORTED_MODULE_1___default.a('#fullpage', {
+
+	new fullpage_js__WEBPACK_IMPORTED_MODULE_1___default.a('#fullpage', {
 		licenseKey: 'D981602C-940F4E9F-B5104540-EB7B7079',
 	
 		paddingTop: '150px',
@@ -31435,19 +31455,19 @@ function initFullPage() {
 		verticalCentered: true,
 		navigation: true,
 		slidesNavigation: true,
+		scrollOverflow: true,
 	
 		menu: '#navList',
 		anchors: ['company', 'investors', 'partners', 'calculator', 'news'],
-		scrollOverflow: true,
 	
 		afterLoad: function(origin, destination, direction){
 			let pageNum = document.querySelector('.footer__page-num span:first-child');
 			let pageTitle = document.querySelector('.footer__page-num span:last-child');
 			let scrollUpBtn = document.getElementById('scrollUpBtn');
 	
-			let stopAnimate = document.querySelector('.fade-in-animation');
+			let animation = document.querySelector('.fade-in-animation');
 			
-			pageNum.innerHTML = '0' + String(destination.index + 1)
+			pageNum.innerHTML = '0' + String(destination.index + 1);
 	
 			if(destination.anchor === 'company') {
 				scrollUpBtn.classList.contains('active') ?
@@ -31456,8 +31476,8 @@ function initFullPage() {
 			}
 	
 			if(destination.anchor !== 'company') {
-				stopAnimate ?
-				stopAnimate.classList.remove('fade-in-animation') : null;
+				animation ?
+				animation.classList.remove('fade-in-animation') : null;
 			}
 	
 			if(destination.anchor === 'investors') {
@@ -31499,44 +31519,71 @@ function initFullPage() {
 				body.classList.add('fullpage-destroyed');
 				isInited = false;
 
-				console.log(fp)
+				window.addEventListener('resize', reInit);
 			}
 		}
 	});
 }
 
-// блоки, которые должны быть одинаковыми по высоте, 
-// чтобы фон подстраивался зеркально
-let investors = document.querySelector('.investors');
-let partners = document.querySelector('.partners');
+function reInit() {
+	if(window.innerWidth > 960 && window.innerHeight > 875 && !isInited){
+		body.classList.contains('fullpage-destroyed') ?
+		body.classList.remove('fullpage-destroyed') : null;
+
+		initFullPage();
+		window.removeEventListener('resize', reInit);
+	}
+}
+
+if(window.innerWidth > 960 && window.innerHeight > 875 && !isInited) {
+	body.classList.contains('fullpage-destroyed') ?
+	body.classList.remove('fullpage-destroyed') : null;
+
+	initFullPage();
+} else {
+	window.addEventListener('resize', reInit);
+}
+
 
 // блоки, которые должны быть одинаковыми по высоте, 
 // чтобы фон подстраивался зеркально
-let calc = document.querySelector('.calc');
-let news = document.querySelector('.news');
+//let investors = document.querySelector('.investors');
+//let partners = document.querySelector('.partners');
 
-function setEqualHeight(section_1, section_2) {
+// блоки, которые должны быть одинаковыми по высоте, 
+// чтобы фон подстраивался зеркально
+//let calc = document.querySelector('.calc');
+//let news = document.querySelector('.news');
+
+/*function setEqualHeight(section_1, section_2) {
     if(section_1.offsetHeight !== section_2.offsetHeight) {
        section_1.offsetHeight > section_2.offsetHeight ?
        section_2.style.height = section_1.offsetHeight + 'px':
        section_1.offsetHeight < section_2.offsetHeight ?
        section_1.style.height = section_2.offsetHeight + 'px' : null;
     }
-};
+};*/
 
-function init() {
+/*function init() {
+	
 	if(window.innerWidth > 960 && window.innerHeight > 875 && !isInited){
 		isInited = true;
 		initFullPage();
+		
+		
 		body.classList.contains('fullpage-destroyed') ?
 		body.classList.remove('fullpage-destroyed') : null;
 
-		setTimeout(() => {
+		console.log('INIT, isInited: ', isInited)
+
+		/*setTimeout(() => {
 			console.log('height2')
 			setEqualHeight(investors, partners);
 			//setEqualHeight(calc, news);
-		}, 100);
-	} //else {
+		}, 100);*/
+	/*} else {
+		console.log(isInited, 'ELSE', window.innerWidth, window.innerHeight);
+	}*/ //else {
 		/*setTimeout(() => {
 			console.log('height3')
 			setEqualHeight(investors, partners);
@@ -31544,18 +31591,18 @@ function init() {
 		}, 100);*/
 	//}
 
-	setTimeout(() => {
+	/*setTimeout(() => {
 		console.log('height1')
 		setEqualHeight(investors, partners);
     	//setEqualHeight(calc, news);
-	}, 100);
-}
+	}, 100);*/
+//}
 
-window.addEventListener('resize', () => {
+/*window.addEventListener('resize', () => {
 	init();
 });
 
-init();
+init();*/
 
 /***/ }),
 

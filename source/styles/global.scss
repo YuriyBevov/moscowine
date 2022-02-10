@@ -47,26 +47,73 @@ button {
     }
 }
 
+body {
+    position: relative;
+
+    &::before,
+    &::after {
+        position: fixed;
+        
+        content: '';
+        width: 100vw;
+        height: 100vh;
+        
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      background-size: cover;
+      background-position: right;
+
+        .webp & {
+            background-image: url("../assets/img/bg-right@1x.webp");
+
+            @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
+                background-image: url("../assets/img/bg-right@2x.webp");
+            }
+        }
+        
+        .no-webp & {
+            background-image: url("../assets/img/bg-right@1x.png");
+        
+            @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
+                background-image: url("../assets/img/bg-right@2x.png");
+            }
+        }
+    }
+
+    &::after {
+        bottom: -60%;
+        left: 0;
+        background-size: contain;
+        background-position: left;
+
+        .webp & {
+            background-image: url("../assets/img/bg-left@1x.webp");
+
+            @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
+                background-image: url("../assets/img/bg-left@2x.webp");
+            }
+        }
+        
+        .no-webp & {
+            background-image: url("../assets/img/bg-left@1x.png");
+        
+            @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
+                background-image: url("../assets/img/bg-left@2x.png");
+            }
+        }
+    }
+
+    background-color: #1E1437 !important;
+}
+
 .section {
-
-    /*& .container {
-        max-height: calc(100vh - 300px);
-
-        overscroll-behavior: contain;
-        overflow-y: auto;
-        outline: 1px solid red;
-    } */
-
-    //background-color: #5e2873;
-    background-size: cover;
-
-    &:nth-child(even) {
-        background-position: left top;
-    }
-
-    &:nth-child(odd) {
-        background-position: left bottom;
-    }
+    position: relative;
+    z-index: 9;
 }
 
 .form-holder {
@@ -147,8 +194,8 @@ section {
     height: fit-content;
     min-height: 100vh;
     width: 100%;
-    background: rgb(166,61,117);
-    background: linear-gradient(0deg, rgba(166,61,117,1) 0%, rgba(29,20,46,1) 35%, rgba(29,20,46,1) 65%, rgba(166,61,117,1) 100%);
+    //background: rgb(166,61,117);
+    //background: linear-gradient(0deg, rgba(166,61,117,1) 0%, rgba(29,20,46,1) 35%, rgba(29,20,46,1) 65%, rgba(166,61,117,1) 100%);
 }
 
 .fullpage-destroyed {

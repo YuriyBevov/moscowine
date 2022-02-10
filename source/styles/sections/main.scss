@@ -1,5 +1,22 @@
 .main {
-    .webp & {
+    
+    /*position: relative;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-image: url(../assets/img/bg-section_1@1x.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right;
+    }*/
+
+    
+    /*.webp & {
         background-image: url("../assets/img/bg-section_1@1x.webp");
 
         @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
@@ -45,7 +62,7 @@
             background-image: url("../assets/img/bg-section-mobile_1@2x.jpg");
           }
         }
-    }
+    }*/
 
     &__desc {
         max-width: 335px;

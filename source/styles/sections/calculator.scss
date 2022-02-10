@@ -1,5 +1,45 @@
 .calc {
-    .webp & {
+    & .container {
+      position: relative;
+    }
+    &__bg {
+      background-repeat: no-repeat;
+      background-size: contain;
+      //background-image: url("../assets/img/planet@1x.png");
+
+      //transform: translateY(-100vh);
+
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      z-index: -1;
+      transform: translate(-25%, 100vh);
+      transition: transform 0.7s 0.2s ease-out;
+
+      &.js-intersected {
+        transform: translate(-25%, 0);
+      }
+
+      .webp & {
+          background-image: url("../assets/img/planet@1x.webp");
+
+          @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
+              background-image: url("../assets/img/planet@2x.webp");
+          }
+      }
+      
+      .no-webp & {
+          background-image: url("../assets/img/planet@1x.png");
+      
+          @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
+              background-image: url("../assets/img/planet@2x.png");
+          }
+      }
+    }
+
+    /*.webp & {
         background-image: url("../assets/img/bg-section_41@1x.webp");
 
         @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
@@ -47,7 +87,7 @@
           }
     }
 
-    background-position: left bottom !important;
+    background-position: left bottom !important;*/
 
     &__desc {
         max-width: 460px;
