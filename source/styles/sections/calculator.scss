@@ -5,26 +5,29 @@
     }
     
     &__bg {
-      background-repeat: no-repeat;
-      background-size: contain;
-      //background-image: url("../assets/img/planet@1x.png");
-
-      //transform: translateY(-100vh);
-
-      position: absolute;
+      position: relative;
       width: 100%;
       height: 100%;
-      top: 0;
-      left: 50%;
-      z-index: -1;
-      transform: translate(-25%, 100vh);
-      transition: transform 0.7s 0.2s ease-out;
 
-      &.js-intersected {
-        transform: translate(-35%, 12vh);
-      }
+      &::before {
+        position: absolute;
+        top: -12vh;
+        left: -25%;
+        content: '';
 
-      .webp & {
+        background-repeat: no-repeat;
+        background-size: contain;
+        //background-image: url("../assets/img/planet@1x.png");
+  
+        //transform: translateY(-100vh);
+  
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        transform: translate(0, 100vh);
+        transition: transform 0.7s 0.2s ease-out;
+
+        .webp & {
           background-image: url("../assets/img/planet@1x.webp");
 
           @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
@@ -39,57 +42,28 @@
               background-image: url("../assets/img/planet@2x.png");
           }
       }
+      }
+
+      /*background-repeat: no-repeat;
+      background-size: contain;
+      //background-image: url("../assets/img/planet@1x.png");
+
+      //transform: translateY(-100vh);
+
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      z-index: -1;
+      transform: translate(-35%, 100vh);
+      transition: transform 0.7s 0.2s ease-out;*/
+
+      &.js-intersected::before {
+        //transform: translate(-50%, 12vh);
+        transform: translate(0, 0);
+      }
     }
-
-    /*.webp & {
-        background-image: url("../assets/img/bg-section_41@1x.webp");
-
-        @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
-            background-image: url("../assets/img/bg-section_41@2x.webp");
-          }
-  
-          @media(max-width: 960px) {
-            background-image: url("../assets/img/bg-section-tablet_41@1x.webp");
-  
-            @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
-              background-image: url("../assets/img/bg-section-tablet_41@2x.webp");
-            }
-          }
-  
-          @media(max-width: 480px) {
-            background-image: url("../assets/img/bg-section-mobile_41@1x.webp");
-  
-            @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
-              background-image: url("../assets/img/bg-section-mobile_41@2x.webp");
-            }
-          }
-        }
-      
-        .no-webp & {
-          background-image: url("../assets/img/bg-section_41@1x.jpg");
-      
-          @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
-            background-image: url("../assets/img/bg-section_41@2x.jpg");
-          }
-  
-          @media(max-width: 960px) {
-            background-image: url("../assets/img/bg-section-tablet_41@1x.jpg");
-      
-            @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
-              background-image: url("../assets/img/bg-section-tablet_41@2x.jpg");
-            }
-          }
-  
-          @media(max-width: 480px) {
-            background-image: url("../assets/img/bg-section-mobile_41@1x.jpg");
-      
-            @media (min-resolution: 1.5dppx) and (min-resolution: 144dpi) {
-              background-image: url("../assets/img/bg-section-mobile_41@2x.jpg");
-            }
-          }
-    }
-
-    background-position: left bottom !important;*/
 
     &__desc {
         max-width: 460px;

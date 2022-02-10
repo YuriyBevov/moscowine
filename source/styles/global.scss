@@ -47,14 +47,8 @@ button {
     }
 }
 
-main {
-    overflow-x: hidden;
-}
-
 body {
     position: relative;
-    overflow: hidden;
-    overflow-y: auto;
 
     &::before,
     &::after {
