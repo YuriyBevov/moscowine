@@ -1,7 +1,7 @@
 .calc {
     & .container {
-      position: relative;
-      overflow: hidden;
+      // position: relative;
+      // overflow: hidden;
     }
     
     &__bg {
@@ -21,7 +21,7 @@
       transition: transform 0.7s 0.2s ease-out;
 
       &.js-intersected {
-        transform: translate(-25%, 0);
+        transform: translate(-35%, 12vh);
       }
 
       .webp & {
