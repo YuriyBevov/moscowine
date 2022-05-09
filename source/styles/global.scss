@@ -197,6 +197,8 @@ section {
 }
 
 .fullpage-destroyed {
+    overflow-x: hidden; 
+
     section {
         display: flex !important;
         min-height: auto;
